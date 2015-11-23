@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterNavBar.master.cs" Inherits="MerCadona.MasterNavBar" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Master</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style>
+        .nav {
+            background-color:#00802b;
+        }
+        
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="container">
+         <div id="cabecera">
+
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/imagenes/imagenes_NuestraEmpresa/logomercahorizontal325.gif" />
+
+        </div>
+        <div id="nav-bar">
+            
+            <table style="width:800px;">
+                <tr>
+                    <td align="center" class="nav" >
+                        <asp:LinkButton Font-Underline="false" ID="linkInicio" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White" EnableTheming="True">INICIO</asp:LinkButton>
+                    </td>
+                    <td align="center" class="nav">
+                        <asp:LinkButton Font-Underline="false" ID="linkEmpresa" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">EMPRESA</asp:LinkButton>
+                    </td>
+                    <td align="center" class="nav">
+                        <asp:LinkButton Font-Underline="false" ID="linkDonde" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">¿DÓNDE ESTAMOS?</asp:LinkButton>
+                    </td>
+                    <td align="center" class="nav">
+                        <asp:LinkButton Font-Underline="false" ID="linkAtencion" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">ATENCIÓN AL CLIENTE</asp:LinkButton>
+                    </td>
+                    <td align="center" class="nav">
+                        <asp:LinkButton Font-Underline="false" ID="linkVentajas" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">VENTAJAS</asp:LinkButton>
+                    </td>
+                    <td align="center" class="nav">
+                        <asp:LinkButton Font-Underline="false" ID="LinkButton5" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">MODELO DE GESTIÓN</asp:LinkButton>
+                    </td>
+                    <td align="center" class="nav">
+                        <asp:LinkButton Font-Underline="false" ID="LinkButton6" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">NOTICIAS</asp:LinkButton>
+                    </td>
+                </tr>
+                
+            </table>
+            
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
