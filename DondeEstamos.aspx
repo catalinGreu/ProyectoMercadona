@@ -13,20 +13,7 @@
         .auto-style3 {
             width: 23px;
         }
-        body {background: #eaeaea; font-family: Arial, sans-serif; color: #343434;}
-        #container {
-            width: 980px;
-            background: #fff;
-            margin: 10px auto;
-            border: 1px solid #999;
-            position: relative;
-            height: 500px;
-        }
-        #content {
-            background: #fff;
-            padding: 20px;
-            position: absolute; left: 0; top: 50px;
-        }
+        
       
     </style>
 </asp:Content>

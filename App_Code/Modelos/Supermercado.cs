@@ -10,14 +10,14 @@ namespace MerCadona.App_Code.Modelos
         #region "____Atributos de clase___"
         private string localidad;
         private string calle;
-        private short codPostal;
-        private int telefono;
+        private string codPostal;
+        private string telefono;
         private string horario;
-        private bool parking;
+        private string parking;
         #endregion
 
         public Supermercado(){}
-        public Supermercado(string loc, string calle, short cp, int tlf, string hora, bool parking)
+        public Supermercado(string loc, string calle, string cp, string tlf, string hora, string parking)
         {
             this.Localidad = loc;
             this.Calle = calle;
@@ -41,12 +41,12 @@ namespace MerCadona.App_Code.Modelos
             get { return this.calle; }
             set { this.calle = value; }
         }
-        public short CP
+        public string CP
         {
             get { return this.codPostal; }
             set { this.codPostal = value; }
         }
-        public int Telefono
+        public string Telefono
         {
             get { return this.telefono; }
             set { this.telefono = value; }
@@ -56,7 +56,7 @@ namespace MerCadona.App_Code.Modelos
             get { return this.horario; }
             set { this.horario = value; }
         }
-        public bool Parking
+        public string Parking
         {
             get { return this.parking; }
             set { this.parking = value; }

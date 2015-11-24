@@ -15,35 +15,33 @@ namespace MerCadona
             ContentPlaceHolder holder = (ContentPlaceHolder)this.Master.FindControl("ContentPlaceHolder1");
             //Leer fichero y cargar provincias en 
             //drop down (con controlador ficheros)
-            __controlFichero = new ControladorFicheros();
-            string[] provincias = __controlFichero.getProvincias("/ficheros/provincias.csv");
 
-            for ( int i = 0; i < provincias.Length; i++ )
-            {
-                this.dropProvincias.Items.Insert(i, provincias[i]);
-            }
 
-            if ( this.IsPostBack )
+            if (this.IsPostBack)
             {
                 mostrarClaves();
 
-                foreach ( string clave in this.Request.Params.Keys )
+                foreach (string clave in this.Request.Params.Keys)
                 {
-                    if ( clave.Contains("btnAceptar") )
+                    if (clave.Contains("btnAceptar"))
                     {
                         this.TextBox1.Text = "El valor del drop es: " + this.dropProvincias.SelectedValue;
-                        if ( this.dropProvincias.SelectedValue == "Madrid" )
+                        if (this.dropProvincias.SelectedValue == "Madrid")
                         {
-                            holder.Controls.Clear();
-                            break;
-                            //llamo a controlador de Ficheros
-                            //se lee el fichero XML
-                            //devuelve objetos Supermercado
-                            // y aqui cargo el control de usuario con esos objetos
-                            //
-             
+                            this.Response.Redirect("DondeSupermercados.aspx");
+
                         }
                     }
+                }
+            }
+            else
+            {
+                __controlFichero = new ControladorFicheros();
+                string[] provincias = __controlFichero.getProvincias("/ficheros/provincias.csv");
+
+                for (int i = 0; i < provincias.Length; i++)
+                {
+                    this.dropProvincias.Items.Insert(i, provincias[i]);
                 }
             }
         }

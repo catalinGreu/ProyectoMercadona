@@ -21,21 +21,85 @@ namespace MerCadona.App_Code.Controladores
 
         }
 
+
+        // Leo from XML
         public List<Supermercado> getSuperFromXML(string ruta)
         {
-            XElement root = XElement.Load(@"fichero/Supermercados.xml");
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
 
-            return (from nodo in root.Elements("Localidad")
+            //falta comprobar cuando NO hay parking!!!!!
+            return (from nodo in root.Descendants("Supermercado")
+                    let loc = nodo.Parent.Attribute("Nombre").Value
+                    let dir = nodo.Element("Direccion").Value
+                    let cp = nodo.Element("CP").Value
+                    let hora = nodo.Element("Horario").Value
+                    let tlf = nodo.Element("Telefono").Value
+                    //let parking = nodo.Element("Parking").Value
+                    select new Supermercado
+                    {
+                        Localidad = loc,
+                        Calle = dir,
+                        CP = cp,
+                        Horario = hora,
+                        Telefono = tlf,
+                        //Parking = parking
 
-                    let nombreLoc = nodo.Attributes("Nombre")
-                    let calle = nodo.Element("Supermercado").
-                    //let cp = ....a ver si va;
-            select new Supermercado()
-            {
-                Localidad = nombreLoc,
-            }
-                    ).List<Supermercado>;
+                    }).ToList<Supermercado>();
 
         }
+
+        public List<Supermercado> getSuperLoc(string ruta, string localidad)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            return (from nodo in root.Descendants("Supermercado")
+                    where (string)nodo.Parent.Attribute("Nombre").Value == localidad
+                    let loc = nodo.Parent.Attribute("Nombre").Value
+                    let dir = nodo.Element("Direccion").Value
+                    let cp = nodo.Element("CP").Value
+                    let hora = nodo.Element("Horario").Value
+                    let tlf = nodo.Element("Telefono").Value
+                    //let parking = nodo.Element("Parking").Value
+                    select new Supermercado
+                    {
+                        Localidad = loc,
+                        Calle = dir,
+                        CP = cp,
+                        Horario = hora,
+                        Telefono = tlf,
+                        //Parking = parking
+                    }
+           ).ToList<Supermercado>();
+
+        }
+        public List<Supermercado> getSuperLocYHora(string ruta, string localidad, string hora)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+            return (from nodo in root.Descendants("Supermercado")
+                    where (string)nodo.Parent.Attribute("Nombre").Value == localidad
+                    where (string)nodo.Element("Horario").Value == hora
+
+                    let loc = nodo.Parent.Attribute("Nombre").Value
+                    let dir = nodo.Element("Direccion").Value
+                    let cp = nodo.Element("CP").Value
+                    let horario = nodo.Element("Horario").Value
+                    let tlf = nodo.Element("Telefono").Value
+                    select new Supermercado
+                    {
+                        Localidad = loc,
+                        Calle = dir,
+                        CP = cp,
+                        Horario = horario,
+                        Telefono = tlf,
+                    }).ToList<Supermercado>();
+        }
+        public string[] getLocalidades(string ruta)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+            return (from nodo in root.Descendants("Localidad")
+                    let loc = nodo.Attribute("Nombre").Value
+                    select loc).ToArray<string>();
+        }
+
     }
 }

@@ -59,11 +59,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DondeEstamos.aspx" />
+    <Content Include="DondeSupermercados.aspx" />
     <Content Include="ficheros\Supermercados.xml" />
     <Content Include="imagenes\imagenes_CompraOnline\botonCarritoFormalizar.png" />
     <Content Include="imagenes\imagenes_CompraOnline\botonCarritoGuardar.png" />
     <Content Include="imagenes\imagenes_Inicio\img_canalMerc.png" />
     <Content Include="imagenes\imagenes_NuestraEmpresa\imgsNuestraEmpresa.png" />
+    <Content Include="imagenes\imagenes_NuestraEmpresa\parking.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="MasterCompraOnLine.Master" />
     <Content Include="NuestraEmpresaMaster.aspx" />
@@ -71,6 +73,7 @@
     <Content Include="__Controles_Usuario__\controlListaMiniProducto.ascx" />
     <Content Include="ficheros\provincias.csv" />
     <Content Include="MasterNavBar.Master" />
+    <Content Include="__Controles_Usuario__\ControlSupermercado.ascx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -123,6 +126,13 @@
     <Compile Include="DondeEstamos.aspx.designer.cs">
       <DependentUpon>DondeEstamos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DondeSupermercados.aspx.cs">
+      <DependentUpon>DondeSupermercados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DondeSupermercados.aspx.designer.cs">
+      <DependentUpon>DondeSupermercados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -165,6 +175,13 @@
     </Compile>
     <Compile Include="__Controles_Usuario__\controlListaMiniProducto.ascx.designer.cs">
       <DependentUpon>controlListaMiniProducto.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="__Controles_Usuario__\ControlSupermercado.ascx.cs">
+      <DependentUpon>ControlSupermercado.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="__Controles_Usuario__\ControlSupermercado.ascx.designer.cs">
+      <DependentUpon>ControlSupermercado.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
