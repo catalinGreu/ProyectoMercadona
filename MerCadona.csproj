@@ -115,6 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Controladores\ControladorFicheros.cs" />
+    <Compile Include="App_Code\Modelos\Supermercado.cs" />
     <Compile Include="DondeEstamos.aspx.cs">
       <DependentUpon>DondeEstamos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -166,9 +167,7 @@
       <DependentUpon>controlListaMiniProducto.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Code\Modelos\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

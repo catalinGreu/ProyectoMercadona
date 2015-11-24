@@ -36,6 +36,11 @@ namespace MerCadona
                         {
                             holder.Controls.Clear();
                             break;
+                            //llamo a controlador de Ficheros
+                            //se lee el fichero XML
+                            //devuelve objetos Supermercado
+                            // y aqui cargo el control de usuario con esos objetos
+                            //
              
                         }
                     }
