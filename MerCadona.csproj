@@ -58,8 +58,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AtencionCliente.aspx" />
     <Content Include="DondeEstamos.aspx" />
     <Content Include="DondeSupermercados.aspx" />
+    <Content Include="ficheros\Empleados.xml" />
+    <Content Include="ficheros\RECLAMACIONES.txt" />
     <Content Include="ficheros\Supermercados.xml" />
     <Content Include="imagenes\imagenes_CompraOnline\botonCarritoFormalizar.png" />
     <Content Include="imagenes\imagenes_CompraOnline\botonCarritoGuardar.png" />
@@ -119,6 +122,13 @@
   <ItemGroup>
     <Compile Include="App_Code\Controladores\ControladorFicheros.cs" />
     <Compile Include="App_Code\Modelos\Supermercado.cs" />
+    <Compile Include="AtencionCliente.aspx.cs">
+      <DependentUpon>AtencionCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AtencionCliente.aspx.designer.cs">
+      <DependentUpon>AtencionCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DondeEstamos.aspx.cs">
       <DependentUpon>DondeEstamos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

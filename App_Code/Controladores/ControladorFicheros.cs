@@ -10,6 +10,7 @@ namespace MerCadona.App_Code.Controladores
     public class ControladorFicheros
     {
         private StreamReader fichero;
+        private StreamWriter writer;
         public string[] getProvincias(string ruta)
         {
 
@@ -27,14 +28,13 @@ namespace MerCadona.App_Code.Controladores
         {
             XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
 
-            //falta comprobar cuando NO hay parking!!!!!
             return (from nodo in root.Descendants("Supermercado")
                     let loc = nodo.Parent.Attribute("Nombre").Value
                     let dir = nodo.Element("Direccion").Value
                     let cp = nodo.Element("CP").Value
                     let hora = nodo.Element("Horario").Value
                     let tlf = nodo.Element("Telefono").Value
-                    //let parking = nodo.Element("Parking").Value
+                    let parking = nodo.Element("Parking").Value
                     select new Supermercado
                     {
                         Localidad = loc,
@@ -42,7 +42,7 @@ namespace MerCadona.App_Code.Controladores
                         CP = cp,
                         Horario = hora,
                         Telefono = tlf,
-                        //Parking = parking
+                        Parking = parking
 
                     }).ToList<Supermercado>();
 
@@ -59,7 +59,7 @@ namespace MerCadona.App_Code.Controladores
                     let cp = nodo.Element("CP").Value
                     let hora = nodo.Element("Horario").Value
                     let tlf = nodo.Element("Telefono").Value
-                    //let parking = nodo.Element("Parking").Value
+                    let parking = nodo.Element("Parking").Value
                     select new Supermercado
                     {
                         Localidad = loc,
@@ -67,7 +67,7 @@ namespace MerCadona.App_Code.Controladores
                         CP = cp,
                         Horario = hora,
                         Telefono = tlf,
-                        //Parking = parking
+                        Parking = parking
                     }
            ).ToList<Supermercado>();
 
@@ -101,5 +101,22 @@ namespace MerCadona.App_Code.Controladores
                     select loc).ToArray<string>();
         }
 
+        // grabo datos en fichero
+        public bool grabaReclamacion(string nombre, string dni, string ruta)
+        {
+            string cadena = nombre + ":" + dni;
+
+            try
+            {
+                writer = new StreamWriter(HttpContext.Current.Request.MapPath(ruta), true);
+                writer.WriteLine(cadena);
+                writer.Close();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -1,0 +1,14 @@
+﻿<empleadoas>
+  <empleado>
+    <nombre>Catalin</nombre>
+    <apellidos>Greu</apellidos>
+    <nif>12345678</nif>
+    <departamento>Informatica</departamento>
+    <puesto>El jefazo</puesto>
+    <telefono tipo="movil">678003721</telefono>
+    <telefono tipo="fijo">916663212</telefono>
+    <direccion>c/ la q sea</direccion>
+    <localidad>Alcala</localidad>
+    <provincia>Madrid</provincia>
+  </empleado>
+</empleadoas>

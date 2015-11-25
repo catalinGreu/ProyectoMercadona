@@ -32,9 +32,9 @@ namespace MerCadona
                                 this.Response.Redirect("DondeEstamos.aspx");
                             }
 
-                            else if (claveRequest.Contains("AtencionCliente.aspx"))
+                            else if (claveRequest.Contains("linkAtencion"))
                             {
-
+                                this.Response.Redirect("AtencionCliente.aspx");
                             }
                             break;
                         default:

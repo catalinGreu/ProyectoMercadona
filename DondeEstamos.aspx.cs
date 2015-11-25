@@ -23,6 +23,8 @@ namespace MerCadona
 
                 foreach (string clave in this.Request.Params.Keys)
                 {
+                    string claveRequest = this.Request.Params[clave];
+
                     if (clave.Contains("btnAceptar"))
                     {
                         this.TextBox1.Text = "El valor del drop es: " + this.dropProvincias.SelectedValue;
@@ -32,6 +34,11 @@ namespace MerCadona
 
                         }
                     }
+                    if (claveRequest.Contains("linkInicio") )
+                    {
+                        this.Response.Redirect("Inicio.aspx");
+                    }
+                    //CONTROLAR ATENCION AL CLIENTE....
                 }
             }
             else

@@ -62,7 +62,7 @@ namespace MerCadona.__Controles_Usuario__
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.parking != "Si")
+            if (this.parking != "si")
             {
                 this.Image1.Visible = false;
             }

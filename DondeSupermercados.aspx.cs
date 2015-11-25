@@ -24,10 +24,15 @@ namespace MerCadona
             if (this.IsPostBack)
             {
                 foreach (string clave in this.Request.Params.Keys)
-                {//no lo coge bien.....Revisar
-                    if (clave.Contains("linkInicio"))
+                {
+                    string claveRequest = this.Request.Params[clave];
+                    if (claveRequest.Contains("linkInicio"))
                     {
                         this.Response.Redirect("Inicio.aspx");
+                    }
+                    else if (claveRequest.Contains("linkDonde"))
+                    {
+                        this.Response.Redirect("DondeEstamos.aspx");
                     }
                 }
             }
@@ -43,6 +48,8 @@ namespace MerCadona
                     this.dropLocalidades.Items.Insert(i, localidades[i]);
                 }
 
+                //si no hay postBack...relleno la lista
+                //pero si hay postBack se pierde el contenido supongo...
                 this.listaSupers = __controlFichero.getSuperFromXML(ruta);
 
                 rellenaTablaSuper(listaSupers);
@@ -52,7 +59,7 @@ namespace MerCadona
 
         public void rellenaTablaSuper(List<Supermercado> lista)
         {
-            if ( lista.Count == 0 )
+            if (lista.Count == 0)
             {
                 TableRow row = new TableRow();
                 row.BackColor = Color.LightSalmon;
@@ -86,7 +93,7 @@ namespace MerCadona
                 micontrol.CodigoPostal = s.CP;
                 micontrol.Telefono = s.Telefono;
                 micontrol.Horario = s.Horario;
-                micontrol.Parking = "Si";
+                micontrol.Parking = s.Parking;
 
                 TableRow row2 = new TableRow();
                 TableCell cell2 = new TableCell();
@@ -110,15 +117,16 @@ namespace MerCadona
                 lista = __controlFichero.getSuperLoc(ruta, loc);
                 rellenaTablaSuper(lista);
             }
-            else if ( loc != null && hora != null )
+            else if (loc != null && hora != null)
             {
                 lista = __controlFichero.getSuperLocYHora(ruta, loc, hora);
                 rellenaTablaSuper(lista);
             }
-            /// CUANDO ESTAN VACIOS LOC Y HORA NO VAAAAAA
-
-            //Me leo el xml y devuelvo los arrays necesarios para
-            //cargar los campos usuario...cogiendo lo que esté seleccionado en los drop
+            else
+            {
+                //no lo rellena el cabron
+                rellenaTablaSuper(listaSupers);
+            }
 
         }
     }
