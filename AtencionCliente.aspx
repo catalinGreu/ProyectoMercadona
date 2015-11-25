@@ -68,21 +68,16 @@
                 <asp:Label ID="Label6" runat="server" Font-Bold="True" ForeColor="#CC0000" Text="*"></asp:Label>
             </td>
             <td colspan="4" class="auto-style4">
-                <asp:RadioButtonList ID="radioFelicitacion" runat="server">
-                    <asp:ListItem>Felicitación</asp:ListItem>
-                </asp:RadioButtonList>
-                <asp:RadioButtonList ID="radioSugerencia" runat="server">
-                    <asp:ListItem>Sugerencia</asp:ListItem>
+                <asp:RadioButtonList ID="radioList" runat="server">
+                    <asp:ListItem Value="Felicitacion">Felicitacion</asp:ListItem>
+                    <asp:ListItem Value="Sugerencia">Sugerencia</asp:ListItem>
+                    <asp:ListItem Value="Solicitud de informacion">Solicitud de informacion</asp:ListItem>
+                    <asp:ListItem Value="Reclamacion">Reclamacion</asp:ListItem>
                 </asp:RadioButtonList>
                 <br />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="radioList" ErrorMessage="Campo necesario" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             </td>
             <td class="auto-style5">
-                <asp:RadioButtonList ID="radioInfo" runat="server">
-                    <asp:ListItem>Solicitud de información</asp:ListItem>
-                </asp:RadioButtonList>
-                <asp:RadioButtonList ID="radioReclamar" runat="server">
-                    <asp:ListItem>Reclamación</asp:ListItem>
-                </asp:RadioButtonList>
                 <br />
             </td>
         </tr>
@@ -90,6 +85,7 @@
             <td colspan="6">
                 <asp:Label ID="Label7" runat="server" Text="Escriba su mensaje"></asp:Label>
                 <asp:Label ID="Label8" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="#CC0000" Text="*"></asp:Label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="inputMensaje" ErrorMessage="Debe escribir mensaje" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -109,14 +105,17 @@
             <td colspan="3" class="auto-style6">
                 <asp:Label ID="Label10" runat="server" Text="Nombre: "></asp:Label>
                 <asp:TextBox ID="inputNombre" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="inputNombre" ErrorMessage="Nombre necesario" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="Label11" runat="server" Text="Apellido1:  "></asp:Label>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="inputApe1" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="inputApe1" ErrorMessage="Apellido necesario" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             </td>
             <td colspan="3">
                 <asp:Label ID="Label12" runat="server" Text="DNI: "></asp:Label>
                 <asp:TextBox ID="inputDNI" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="inputDNI" ErrorMessage="DNI required" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="Label13" runat="server" Text="Apellido2: "></asp:Label>
@@ -135,10 +134,11 @@
             <td colspan="3" class="auto-style6">
                 <asp:Label ID="Label15" runat="server" Text="Provincia: "></asp:Label>
                 <asp:TextBox ID="inputProvincia" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="inputProvincia" ErrorMessage="Provincia necesaria" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="Label16" runat="server" Text="Códig Postal:  "></asp:Label>
-                <asp:TextBox ID="inputCP" runat="server"></asp:TextBox>
+                <asp:TextBox ID="inputCP" runat="server" MaxLength="5"></asp:TextBox>
                 <br />
                 <br />
                 <asp:Label ID="Label19" runat="server" Text="Nombre de vía: "></asp:Label>
@@ -147,6 +147,7 @@
             <td colspan="3">
                 <asp:Label ID="Label17" runat="server" Text="Localidad: "></asp:Label>
                 <asp:TextBox ID="inputLoc" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="inputLoc" ErrorMessage="Localidad incompleta" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:Label ID="Label18" runat="server" Text="Tipo de vía: "></asp:Label>
@@ -164,11 +165,13 @@
         <tr>
             <td colspan="3" class="auto-style6">
                 <asp:Label ID="Label21" runat="server" Text="Teléfono: "></asp:Label>
-                <asp:TextBox ID="inputTlf" runat="server"></asp:TextBox>
+                <asp:TextBox ID="inputTlf" runat="server" MaxLength="9" TextMode="Phone"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="inputTlf" ErrorMessage="Telefono necesario" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             </td>
             <td colspan="3">
                 <asp:Label ID="labelmail" runat="server" Text="E-mail:  "></asp:Label>
-                <asp:TextBox ID="inputMail" runat="server"></asp:TextBox>
+                <asp:TextBox ID="inputMail" runat="server" TextMode="Email"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="inputMail" ErrorMessage="Mail necesario" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>

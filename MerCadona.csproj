@@ -59,11 +59,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AtencionCliente.aspx" />
+    <Content Include="ATENCION_CLIENTE\InfoReclamaciones.aspx" />
+    <Content Include="ATENCION_CLIENTE\LoginAdmin.aspx" />
     <Content Include="DondeEstamos.aspx" />
     <Content Include="DondeSupermercados.aspx" />
     <Content Include="ficheros\Empleados.xml" />
     <Content Include="ficheros\RECLAMACIONES.txt" />
     <Content Include="ficheros\Supermercados.xml" />
+    <Content Include="imagenes\imagenes_Inicio\admin.png" />
     <Content Include="imagenes\imagenes_CompraOnline\botonCarritoFormalizar.png" />
     <Content Include="imagenes\imagenes_CompraOnline\botonCarritoGuardar.png" />
     <Content Include="imagenes\imagenes_Inicio\img_canalMerc.png" />
@@ -76,6 +79,7 @@
     <Content Include="__Controles_Usuario__\controlListaMiniProducto.ascx" />
     <Content Include="ficheros\provincias.csv" />
     <Content Include="MasterNavBar.Master" />
+    <Content Include="__Controles_Usuario__\ControlReclamacion.ascx" />
     <Content Include="__Controles_Usuario__\ControlSupermercado.ascx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -121,6 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Controladores\ControladorFicheros.cs" />
+    <Compile Include="App_Code\Modelos\Empleado.cs" />
+    <Compile Include="App_Code\Modelos\Reclamacion.cs" />
     <Compile Include="App_Code\Modelos\Supermercado.cs" />
     <Compile Include="AtencionCliente.aspx.cs">
       <DependentUpon>AtencionCliente.aspx</DependentUpon>
@@ -128,6 +134,20 @@
     </Compile>
     <Compile Include="AtencionCliente.aspx.designer.cs">
       <DependentUpon>AtencionCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ATENCION_CLIENTE\InfoReclamaciones.aspx.cs">
+      <DependentUpon>InfoReclamaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATENCION_CLIENTE\InfoReclamaciones.aspx.designer.cs">
+      <DependentUpon>InfoReclamaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ATENCION_CLIENTE\LoginAdmin.aspx.cs">
+      <DependentUpon>LoginAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ATENCION_CLIENTE\LoginAdmin.aspx.designer.cs">
+      <DependentUpon>LoginAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="DondeEstamos.aspx.cs">
       <DependentUpon>DondeEstamos.aspx</DependentUpon>
@@ -185,6 +205,13 @@
     </Compile>
     <Compile Include="__Controles_Usuario__\controlListaMiniProducto.ascx.designer.cs">
       <DependentUpon>controlListaMiniProducto.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="__Controles_Usuario__\ControlReclamacion.ascx.cs">
+      <DependentUpon>ControlReclamacion.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="__Controles_Usuario__\ControlReclamacion.ascx.designer.cs">
+      <DependentUpon>ControlReclamacion.ascx</DependentUpon>
     </Compile>
     <Compile Include="__Controles_Usuario__\ControlSupermercado.ascx.cs">
       <DependentUpon>ControlSupermercado.ascx</DependentUpon>

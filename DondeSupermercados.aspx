@@ -60,14 +60,14 @@
                 <asp:Label ID="Label4" runat="server" Text="Localidad"></asp:Label>
                 <br />
                 <asp:DropDownList ID="dropLocalidades" runat="server">
-                    <asp:ListItem Selected="True"></asp:ListItem>
+                    <asp:ListItem Selected="True">Elija localidad</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td class="auto-style5" colspan="3">
                 <asp:Label ID="Label5" runat="server" Text="Horario"></asp:Label>
                 <br />
                 <asp:DropDownList ID="dropHorarios" runat="server">
-                    <asp:ListItem Selected="True"></asp:ListItem>
+                    <asp:ListItem>Elija horario</asp:ListItem>
                     <asp:ListItem>09:00 - 21:30</asp:ListItem>
                     <asp:ListItem>09:00 - 22:00</asp:ListItem>
                     <asp:ListItem>10:00 - 22:00</asp:ListItem>

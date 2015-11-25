@@ -34,6 +34,10 @@ namespace MerCadona
                     {
                         this.Response.Redirect("DondeEstamos.aspx");
                     }
+                    else if (claveRequest.Contains("linkAtencion"))
+                    {
+                        this.Response.Redirect("AtencionCliente.aspx");
+                    }
                 }
             }
             #endregion
@@ -43,10 +47,12 @@ namespace MerCadona
 
                 string[] localidades = __controlFichero.getLocalidades(ruta);
 
+               
                 for (int i = 0; i < localidades.Length; i++)
                 {
                     this.dropLocalidades.Items.Insert(i, localidades[i]);
                 }
+                
 
                 //si no hay postBack...relleno la lista
                 //pero si hay postBack se pierde el contenido supongo...
@@ -111,7 +117,7 @@ namespace MerCadona
             string hora = this.dropHorarios.SelectedValue;
             List<Supermercado> lista = new List<Supermercado>();
 
-            if (loc != null && hora == "")
+            if (loc != null && hora == "Elija horario")
             {
                 //relleno solo con Supermercados de provincia
                 lista = __controlFichero.getSuperLoc(ruta, loc);
@@ -122,7 +128,7 @@ namespace MerCadona
                 lista = __controlFichero.getSuperLocYHora(ruta, loc, hora);
                 rellenaTablaSuper(lista);
             }
-            else
+            else if( loc == "Elija localidad" && hora == "Elija hora" )
             {
                 //no lo rellena el cabron
                 rellenaTablaSuper(listaSupers);

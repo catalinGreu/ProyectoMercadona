@@ -34,9 +34,13 @@ namespace MerCadona
 
                         }
                     }
-                    if (claveRequest.Contains("linkInicio") )
+                    if (claveRequest.Contains("linkInicio"))
                     {
                         this.Response.Redirect("Inicio.aspx");
+                    }
+                    else if (claveRequest.Contains("linkAtencion"))
+                    {
+                        this.Response.Redirect("AtencionCliente.aspx");
                     }
                     //CONTROLAR ATENCION AL CLIENTE....
                 }

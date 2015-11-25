@@ -84,6 +84,7 @@ namespace MerCadona.App_Code.Controladores
                     let cp = nodo.Element("CP").Value
                     let horario = nodo.Element("Horario").Value
                     let tlf = nodo.Element("Telefono").Value
+                    let parking = nodo.Element("Parking").Value
                     select new Supermercado
                     {
                         Localidad = loc,
@@ -91,6 +92,7 @@ namespace MerCadona.App_Code.Controladores
                         CP = cp,
                         Horario = horario,
                         Telefono = tlf,
+                        Parking = parking
                     }).ToList<Supermercado>();
         }
         public string[] getLocalidades(string ruta)
@@ -102,9 +104,10 @@ namespace MerCadona.App_Code.Controladores
         }
 
         // grabo datos en fichero
-        public bool grabaReclamacion(string nombre, string dni, string ruta)
+        public bool grabaReclamacion( Reclamacion r, string ruta )
         {
-            string cadena = nombre + ":" + dni;
+            string cadena = r.Asunto + ":" + r.Mensaje + ":" + r.Nombre + ":" + r.Apellido + ":" + r.DNI + ":"
+                            + r.Provincia + ":" + r.Localidad + ":" + r.Telefono + ":" + r.Email;
 
             try
             {
@@ -117,6 +120,35 @@ namespace MerCadona.App_Code.Controladores
                 return false;
             }
             return true;
+        }
+
+        //Compruebo existencia del empleado
+        public bool compruebEmpleado(string nif, string depart, string ruta)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            bool resultado = (from nodo in root.Descendants("empleado")
+                              let campoNIF = nodo.Element("nif").Value
+                              let campoDepart = nodo.Element("departamento").Value
+                              where campoNIF == nif && campoDepart == depart
+                              select true).SingleOrDefault();
+            return resultado;
+        }
+
+        //Recupero reclamaciones
+        public List<Reclamacion> getReclamaciones(string ruta)
+        {
+            fichero = new StreamReader(HttpContext.Current.Request.MapPath(ruta));
+            return (from linea in fichero.ReadToEnd().Split(new char[] { '\r', '\n' }).Where(linea => !new System.Text.RegularExpressions.Regex("^$").Match(linea).Success)
+                    select new Reclamacion
+                    {
+                        Asunto = linea.Split(new char[] { ':' })[0],
+                        Mensaje = linea.Split(new char[] { ':' })[1],
+                        Nombre = linea.Split(new char[] { ':' })[2],
+                        Email = linea.Split(new char[] { ':' })[8]
+
+                    }).ToList<Reclamacion>();
+
         }
     }
 }
