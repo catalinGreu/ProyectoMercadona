@@ -47,8 +47,7 @@
                     </tr>
                     <tr>
                         <td colspan="3">
-                            <asp:TextBox ID="TextBox1" runat="server" Height="118px" TextMode="MultiLine" Width="201px"></asp:TextBox>
-                        </td>
+                            &nbsp;</td>
                     </tr>
                 </table>
 

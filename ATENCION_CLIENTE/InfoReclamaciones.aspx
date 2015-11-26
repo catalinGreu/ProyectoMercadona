@@ -11,6 +11,8 @@
     <div id="container">
         <div id="cabecera">
             <asp:Image ID="Image1" runat="server" ImageUrl="~/imagenes/imagenes_NuestraEmpresa/logomercahorizontal325.gif" />
+            <div style="float:right;">
+                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Salir</asp:LinkButton></div>
         </div>
         <div id="content">
             <h1>Lista de reclamaciones</h1>

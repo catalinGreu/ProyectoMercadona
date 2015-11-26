@@ -73,6 +73,7 @@
     <Content Include="imagenes\imagenes_Inicio\img_canalMerc.png" />
     <Content Include="imagenes\imagenes_NuestraEmpresa\imgsNuestraEmpresa.png" />
     <Content Include="imagenes\imagenes_NuestraEmpresa\parking.png" />
+    <Content Include="IndexCompra.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="MasterCompraOnLine.Master" />
     <Content Include="NuestraEmpresaMaster.aspx" />
@@ -163,6 +164,13 @@
     </Compile>
     <Compile Include="DondeSupermercados.aspx.designer.cs">
       <DependentUpon>DondeSupermercados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IndexCompra.aspx.cs">
+      <DependentUpon>IndexCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IndexCompra.aspx.designer.cs">
+      <DependentUpon>IndexCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>

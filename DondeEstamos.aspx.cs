@@ -19,7 +19,6 @@ namespace MerCadona
 
             if (this.IsPostBack)
             {
-                mostrarClaves();
 
                 foreach (string clave in this.Request.Params.Keys)
                 {
@@ -27,7 +26,6 @@ namespace MerCadona
 
                     if (clave.Contains("btnAceptar"))
                     {
-                        this.TextBox1.Text = "El valor del drop es: " + this.dropProvincias.SelectedValue;
                         if (this.dropProvincias.SelectedValue == "Madrid")
                         {
                             this.Response.Redirect("DondeSupermercados.aspx");
@@ -56,15 +54,6 @@ namespace MerCadona
                 }
             }
         }
-
-        private void mostrarClaves()
-        {
-            string mensaje = "";
-            foreach (string clave in this.Request.Params.Keys)
-            {
-                mensaje += "Clave: " + clave + "///Valor===>" + this.Request.Params[clave].ToString() + "\n";
-                this.TextBox1.Text = mensaje;
-            }
-        }
+               
     }
 }

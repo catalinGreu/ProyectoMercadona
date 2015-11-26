@@ -79,5 +79,10 @@ namespace MerCadona.ATENCION_CLIENTE
                 this.TextBox1.Text = mensaje;
             }
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            this.Response.Redirect("../Inicio.aspx");
+        }
     }
 }
