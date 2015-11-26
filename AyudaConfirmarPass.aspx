@@ -51,6 +51,8 @@
                     
                     <td>
                         <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="inputPass2" ControlToValidate="inputPass" ErrorMessage="No coinciden" Font-Bold="True" ForeColor="#CC0000"></asp:CompareValidator>
+                        <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="inputPass" ErrorMessage="Falta campo" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </td>
                     
                 </tr>
@@ -62,6 +64,8 @@
                    
                     <td>
                         <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="inputPass" ControlToValidate="inputPass2" ErrorMessage="No coinciden" Font-Bold="True" ForeColor="#CC0000"></asp:CompareValidator>
+                        <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="inputPass2" ErrorMessage="Falta campo" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </td>
                    
                 </tr>

@@ -70,13 +70,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AltaDireccion.aspx" />
-    <Content Include="AltaTlf.aspx" />
     <Content Include="AtencionCliente.aspx" />
     <Content Include="ATENCION_CLIENTE\InfoReclamaciones.aspx" />
     <Content Include="ATENCION_CLIENTE\LoginAdmin.aspx" />
     <Content Include="AyudaConfirmarPass.aspx" />
     <Content Include="AyudaContras.aspx" />
+    <Content Include="CompraOnline.aspx" />
     <Content Include="DondeEstamos.aspx" />
     <Content Include="DondeSupermercados.aspx" />
     <Content Include="ficheros\Clientes.xml" />
@@ -149,20 +148,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AltaDireccion.aspx.cs">
-      <DependentUpon>AltaDireccion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AltaDireccion.aspx.designer.cs">
-      <DependentUpon>AltaDireccion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AltaTlf.aspx.cs">
-      <DependentUpon>AltaTlf.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AltaTlf.aspx.designer.cs">
-      <DependentUpon>AltaTlf.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Code\Controladores\ControladorEmail.cs" />
     <Compile Include="App_Code\Controladores\ControladorFicheros.cs" />
     <Compile Include="App_Code\Modelos\Cliente.cs" />
@@ -203,6 +188,13 @@
     </Compile>
     <Compile Include="AyudaContras.aspx.designer.cs">
       <DependentUpon>AyudaContras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompraOnline.aspx.cs">
+      <DependentUpon>CompraOnline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompraOnline.aspx.designer.cs">
+      <DependentUpon>CompraOnline.aspx</DependentUpon>
     </Compile>
     <Compile Include="DondeEstamos.aspx.cs">
       <DependentUpon>DondeEstamos.aspx</DependentUpon>

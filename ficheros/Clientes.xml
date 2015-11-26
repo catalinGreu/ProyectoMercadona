@@ -5,7 +5,7 @@
     <apellido>Greu</apellido>
     <dni>X3782096E</dni>
     <email>catalin_greu@hotmail.com</email>
-    <password>123456789</password>
+    <password>nuevacontrasenia</password>
     <direccion>C/Doctora de Alcalá, Alcalá de Henares</direccion>
     <telefono>678003725</telefono>
     <fecha>24/06/1994</fecha>
@@ -19,5 +19,35 @@
     <direccion>C/Doctora de Alcalá, Alcalá de Henares</direccion>
     <telefono>678003725</telefono>
     <fecha>24/06/1950</fecha>
+  </cliente>
+  <cliente>
+    <nombre>Manolito</nombre>
+    <apellido>Gafotas</apellido>
+    <dni>09876554P</dni>
+    <email>manolo@jotmeil.com</email>
+    <password>manolito89</password>
+    <direccion>Avenida America 89 4 C   Cienpozuelo</direccion>
+    <telefono>689000444</telefono>
+    <fecha>689000444</fecha>
+  </cliente>
+  <cliente>
+    <nombre>Tamara</nombre>
+    <apellido>Falcó</apellido>
+    <dni>098765423P</dni>
+    <email>tamara_falco@gmail.com</email>
+    <password>qwerty12345</password>
+    <direccion>Bulevard LaEsquina 3 2º B   Alover</direccion>
+    <telefono>666777888</telefono>
+    <fecha>666777888</fecha>
+  </cliente>
+  <cliente>
+    <nombre>assdjhg</nombre>
+    <apellido>jhgjhg</apellido>
+    <dni>jhgjgh</dni>
+    <email>ggg</email>
+    <password>aaa</password>
+    <direccion> asdasd      asdasd</direccion>
+    <telefono>212312311</telefono>
+    <fecha>212312311</fecha>
   </cliente>
 </clientes>

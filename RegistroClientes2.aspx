@@ -125,6 +125,8 @@
                     <br />
                     <asp:TextBox ID="inputEmail" runat="server" CssClass="inputs"></asp:TextBox>
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="ipnutEmail2" ControlToValidate="inputEmail" ErrorMessage="No coinciden" Font-Bold="True" ForeColor="#CC0000"></asp:CompareValidator>
+                    <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="inputEmail" ErrorMessage="Email necesario" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style7">
                     <asp:Label ID="Label8" runat="server" Text="*Confirmación E-mail" CssClass="labelsForm"></asp:Label>
@@ -152,6 +154,8 @@
                     <br />
                     <asp:TextBox ID="inputPasswd" runat="server" CssClass="inputs" TextMode="Password"></asp:TextBox>
                     <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToCompare="inputPass2" ControlToValidate="inputPasswd" ErrorMessage="No coinciden" Font-Bold="True" ForeColor="#CC0000"></asp:CompareValidator>
+                    <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="inputPasswd" ErrorMessage="Passwd necesaria" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style2">
                     <asp:Label ID="Label14" runat="server" CssClass="labelsForm" Text="*Repite contraseña"></asp:Label>
@@ -173,6 +177,7 @@
                     <asp:DropDownList ID="dropDireccion" runat="server">
                     </asp:DropDownList>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="dropDireccion" ErrorMessage="Faltan campos" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style2">
                     <asp:Button ID="btnAltaDir" runat="server" Text="ALTA" Width="94px" Font-Bold="True" ForeColor="#006600" OnClick="btnAltaDir_Click" CausesValidation="false" />
@@ -185,6 +190,7 @@
                     <asp:DropDownList ID="dropTelefono" runat="server">
                     </asp:DropDownList>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="dropTelefono" ErrorMessage="Faltan campos" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style2">
                     <asp:Button ID="btnAltaTlf" runat="server" Text="ALTA" Width="94px" Font-Bold="True" ForeColor="#006600" OnClick="btnAltaTlf_Click" CausesValidation="false" />
@@ -301,7 +307,7 @@
                             <td class="auto-style4">&nbsp;</td>
                             <td colspan="2" style="text-align: center" class="auto-style5">&nbsp;</td>
                             <td style="text-align: center" colspan="2">
-                                <asp:Button ID="btnAceptarDir" runat="server" Text="ACEPTAR" Font-Bold="True" ForeColor="#003300" Height="26px" OnClick="btnAceptarDir_Click" />
+                                <asp:Button ID="btnAceptarDir" runat="server" Text="ACEPTAR" Font-Bold="True" ForeColor="#003300" Height="26px" OnClick="btnAceptarDir_Click" CausesValidation="false"/>
                                 <asp:Button ID="btnCerrarDir" runat="server" CausesValidation="false" Text="CERRAR" Font-Bold="True" ForeColor="#003300" OnClick="btnCerrarDir_Click" />
                             </td>
                         </tr>
@@ -311,14 +317,12 @@
                             <td colspan="2" style="text-align: center" class="auto-style5">&nbsp;</td>
                             <td style="text-align: center" colspan="2">&nbsp;</td>
                         </tr>
-                        <tr>
-                            <td colspan="6">
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="6">
-                                <table id="tablaTlf" runat="server" style="width: 100%;">
+                        
+                    </table>
+                </td>
+                <tr>
+                    <td colspan="6">
+                        <table id="tablaTlf" runat="server" style="width: 100%;">
                                     <tr>
                                         <td colspan="3">
                                             <asp:Label ID="Label25" runat="server" Font-Bold="True" ForeColor="#CC0000" Text="*- Campo obligatorio"></asp:Label>
@@ -346,16 +350,14 @@
                                         <td class="auto-style2">&nbsp;</td>
                                         <td class="auto-style1">&nbsp;</td>
                                         <td>
-                                            <asp:Button ID="btnAceptarTlf" runat="server" Text="ACEPTAR" OnClick="btnAceptarTlf_Click" />
+                                            <asp:Button ID="btnAceptarTlf" runat="server" Text="ACEPTAR" OnClick="btnAceptarTlf_Click" CausesValidation="false"/>
                                             <asp:Button ID="btnCancelarTlf" runat="server" Text="CANCELAR" CausesValidation="false" OnClick="btnCancelarTlf_Click" />
                                         </td>
                                         <td>&nbsp;</td>
                                     </tr>
                                 </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+                    </td>
+                </tr>
             </tr>
         </table>
     </div>

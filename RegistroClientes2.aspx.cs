@@ -12,6 +12,7 @@ namespace MerCadona
     {
         private ControladorFicheros controlFicheros;
         private Cliente cli;
+        private string ruta = "/ficheros/Clientes.xml";
         protected void Page_Load(object sender, EventArgs e)
         {
             cli = new Cliente();
@@ -31,8 +32,7 @@ namespace MerCadona
         protected void btnEnviarAlta_Click(object sender, EventArgs e)
         {
             string fecha = this.dropDia.SelectedValue + "/" + this.dropMes.SelectedValue + "/" + this.dropAnio.SelectedValue;
-            this.dropTelefono.SelectedValue = (string)this.Session["direccion"];
-            this.dropTelefono.SelectedValue = (string)this.Session["telefono"];
+           
             cli = new Cliente();
             cli.Direccion = this.dropDireccion.SelectedValue;
             cli.Nombre = this.inputNombre.Text;
@@ -43,7 +43,9 @@ namespace MerCadona
             cli.Password = this.inputPasswd.Text;
             cli.Telefono = this.dropTelefono.Text;
 
-
+            controlFicheros = new ControladorFicheros();
+            controlFicheros.addCliente(cli, ruta);
+            this.Response.Redirect("IndexCompra.aspx");
             //creat objeto Cliente y mandarlo a grabar al xml
 
         }
@@ -96,7 +98,7 @@ namespace MerCadona
 
         protected void btnAceptarDir_Click(object sender, EventArgs e)
         {
-            string direccion = this.inputVia.Text + ":" + this.inputNombreVia.Text + ":" + this.inputNum.Text + ":" + this.inputPiso.Text + ":" + this.inputPuerta.Text + ":" + this.inputBloque.Text + ":" + this.inputEscalera.Text + ":" + this.inputLoc.Text;
+            string direccion = this.inputVia.Text + " " + this.inputNombreVia.Text + " " + this.inputNum.Text + " " + this.inputPiso.Text + " " + this.inputPuerta.Text + " " + this.inputBloque.Text + " " + this.inputEscalera.Text + " " + this.inputLoc.Text;
             this.tablaForm.Visible = false;
             this.dropDireccion.Items.Insert(0, direccion);
         }

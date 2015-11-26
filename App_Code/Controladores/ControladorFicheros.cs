@@ -199,7 +199,63 @@ namespace MerCadona.App_Code.Controladores
         }
         public void addCliente(Cliente c, string ruta)
         {
-            
+            XmlDocument doc = new XmlDocument();
+            doc.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            XmlElement cliente = doc.CreateElement("cliente");
+
+
+            XmlNode nombre = doc.CreateNode("element", "nombre", "");
+            XmlNode apellido = doc.CreateNode("element", "apellido", "");
+            XmlNode dni = doc.CreateNode("element", "dni", "");
+            XmlNode email = doc.CreateNode("element", "email", "");
+            XmlNode password = doc.CreateNode("element", "password", "");
+            XmlNode direccion = doc.CreateNode("element", "direccion", "");
+            XmlNode telefono = doc.CreateNode("element", "telefono", "");
+            XmlNode fecha = doc.CreateNode("element", "fecha", "");
+
+            nombre.InnerText = c.Nombre;
+            apellido.InnerText = c.Apellido;
+            dni.InnerText = c.DNI;
+            email.InnerText = c.Email;
+            password.InnerText = c.Password;
+            direccion.InnerText = c.Direccion;
+            telefono.InnerText = c.Telefono;
+            fecha.InnerText = c.FechaNacimiento;
+
+            cliente.AppendChild(nombre);
+            cliente.AppendChild(apellido);
+            cliente.AppendChild(dni);
+            cliente.AppendChild(email);
+            cliente.AppendChild(password);
+            cliente.AppendChild(direccion);
+            cliente.AppendChild(telefono);
+            cliente.AppendChild(fecha);
+
+            XmlElement root = doc.DocumentElement;
+            root.AppendChild(cliente);
+
+            doc.Save(HttpContext.Current.Request.MapPath(ruta));
+
+
+        }
+        public Cliente getCliente(string email, string ruta)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+            return (from nodo in root.Descendants("cliente")
+                    where nodo.Element("email").Value == email
+                    select new Cliente
+                    {
+                        Nombre = nodo.Element("nombre").Value,
+                        Apellido = nodo.Element("apellido").Value,
+                        DNI = nodo.Element("dni").Value,
+                        Email = nodo.Element("email").Value,
+                        Password = nodo.Element("password").Value,
+                        Direccion = nodo.Element("direccion").Value,
+                        Telefono = nodo.Element("telefono").Value,
+                        FechaNacimiento = nodo.Element("fecha").Value
+                    }).Single();
+
         }
 
 

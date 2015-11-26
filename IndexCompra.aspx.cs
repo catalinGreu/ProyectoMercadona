@@ -45,7 +45,7 @@ namespace MerCadona
 
                 if (exists)
                 {
-                    this.Response.Redirect("CompraOnline.aspx");//AUN NO HE DECIDIDO EL NOMBRE
+                    this.Response.Redirect("CompraOnline.aspx?usuario=" + email);//AUN NO HE DECIDIDO EL NOMBRE
                 }
             }
             else
