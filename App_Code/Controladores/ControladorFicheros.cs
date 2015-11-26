@@ -172,7 +172,12 @@ namespace MerCadona.App_Code.Controladores
         {
             XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
 
-            //recorrer XML y borrar donde haya ese email.
+            (from nodo in root.Descendants("reclamacion")
+             where nodo.Element("email").Value == email
+             select nodo).Remove();
+
+            root.Save(HttpContext.Current.Request.MapPath(ruta));
+
         }
 
     }

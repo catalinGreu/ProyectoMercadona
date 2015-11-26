@@ -1,14 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <reclamaciones>
   <reclamacion>
     <asunto>Felicitacion</asunto>
-    <mensaje>oa felicito por todo</mensaje>
-    <nombre>cata</nombre>
-    <email>catalin_@hotmail.commmm</email>
-  </reclamacion>
-  <reclamacion>
-    <asunto>Reclamacion</asunto>
-    <mensaje>a ver si graba...q me ha jodido el proyecto el puto visual studio</mensaje>
-    <nombre>muy cabread</nombre>
-    <email>hastaloswebos@joder</email>
+    <mensaje>COngratulations madafaka, por fin borro con linq</mensaje>
+    <nombre>El puto</nombre>
+    <email>cata_greu@gmail.com</email>
   </reclamacion>
 </reclamaciones>
