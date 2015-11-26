@@ -49,7 +49,7 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td>
-                        <asp:ImageButton ID="btnCompraOnline" runat="server" Height="131px" ImageUrl="~/imagenes/imagenes_Inicio/index_Compra.JPG" Width="169px" />
+                        <asp:ImageButton ID="btnCompraOnline" runat="server" Height="131px" ImageUrl="~/imagenes/imagenes_Inicio/index_Compra.JPG" Width="169px" OnClick="btnCompraOnline_Click" />
                     </td>
                     <td>
                         <asp:ImageButton ID="btnFacturaOnline" runat="server" ImageUrl="~/imagenes/imagenes_Inicio/index_Factura.JPG" />

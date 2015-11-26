@@ -95,7 +95,7 @@
                             <br />
                             <div id="buttons" style="position:relative; float:right;">
                                 <asp:Button ID="btnEntrar" runat="server" Text="ENTRAR" Font-Bold="True" ForeColor="DarkGreen" />
-                                <asp:Button ID="btnForgot" runat="server" Text="¿Ha olvidado su contraseña?" Font-Bold="True" ForeColor="DarkGreen" />
+                                <asp:Button ID="btnForgot" runat="server" Text="¿Ha olvidado su contraseña?" Font-Bold="True" ForeColor="DarkGreen" OnClick="btnForgot_Click" />
 
                             </div>
                         </td>

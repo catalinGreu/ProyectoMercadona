@@ -9,3 +9,10 @@ C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\MerCadona
 C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\MerCadona.pdb
 C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\obj\Debug\MerCadona.dll
 C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\obj\Debug\MerCadona.pdb
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\obj\Debug\MerCadona.csprojResolveAssemblyReference.cache
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\Spire.License.dll
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\Spire.Pdf.dll
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\Microsoft.mshtml.dll
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\Spire.License.xml
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\Spire.Pdf.xml
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\AjaxControlToolkit.dll

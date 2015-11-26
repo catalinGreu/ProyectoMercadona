@@ -28,25 +28,25 @@
             <table style="width:800px;">
                 <tr>
                     <td align="center" class="nav" >
-                        <asp:LinkButton Font-Underline="false" ID="linkInicio" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White" EnableTheming="True">INICIO</asp:LinkButton>
+                        <asp:LinkButton Font-Underline="false" ID="linkInicio" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White" EnableTheming="True" CausesValidation="false">INICIO</asp:LinkButton>
                     </td>
                     <td align="center" class="nav">
-                        <asp:LinkButton Font-Underline="false" ID="linkEmpresa" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">EMPRESA</asp:LinkButton>
+                        <asp:LinkButton Font-Underline="false" ID="linkEmpresa" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White" CausesValidation="false">EMPRESA</asp:LinkButton>
                     </td>
                     <td align="center" class="nav">
-                        <asp:LinkButton Font-Underline="false" ID="linkDonde" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">¿DÓNDE ESTAMOS?</asp:LinkButton>
+                        <asp:LinkButton Font-Underline="false" ID="linkDonde" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White" CausesValidation="false">¿DÓNDE ESTAMOS?</asp:LinkButton>
                     </td>
                     <td align="center" class="nav">
-                        <asp:LinkButton Font-Underline="false" ID="linkAtencion" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">ATENCIÓN AL CLIENTE</asp:LinkButton>
+                        <asp:LinkButton Font-Underline="false" ID="linkAtencion" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White" CausesValidation="false">ATENCIÓN AL CLIENTE</asp:LinkButton>
                     </td>
                     <td align="center" class="nav">
-                        <asp:LinkButton Font-Underline="false" ID="linkVentajas" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">VENTAJAS</asp:LinkButton>
+                        <asp:LinkButton Font-Underline="false" ID="linkVentajas" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White" CausesValidation="false">VENTAJAS</asp:LinkButton>
                     </td>
                     <td align="center" class="nav">
-                        <asp:LinkButton Font-Underline="false" ID="LinkButton5" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">MODELO DE GESTIÓN</asp:LinkButton>
+                        <asp:LinkButton Font-Underline="false" ID="LinkButton5" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White" CausesValidation="false">MODELO DE GESTIÓN</asp:LinkButton>
                     </td>
                     <td align="center" class="nav">
-                        <asp:LinkButton Font-Underline="false" ID="LinkButton6" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White">NOTICIAS</asp:LinkButton>
+                        <asp:LinkButton Font-Underline="false" ID="LinkButton6" runat="server" Font-Size="Small" Font-Bold="True" ForeColor="White" CausesValidation="false">NOTICIAS</asp:LinkButton>
                     </td>
                 </tr>
                 

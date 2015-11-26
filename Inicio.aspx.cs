@@ -19,5 +19,10 @@ namespace MerCadona
 
             this.Response.Redirect("NuestraEmpresaMaster.aspx");
         }
+
+        protected void btnCompraOnline_Click(object sender, ImageClickEventArgs e)
+        {
+            this.Response.Redirect("IndexCompra.aspx");
+        }
     }
 }
