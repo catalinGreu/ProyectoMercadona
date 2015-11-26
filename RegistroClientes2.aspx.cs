@@ -19,6 +19,8 @@ namespace MerCadona
             cargaDias();
             cargaMeses();
             cargaAnios();
+            this.tablaForm.Visible = false;
+            this.tablaTlf.Visible = false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -80,23 +82,39 @@ namespace MerCadona
 
         protected void btnAltaDir_Click(object sender, EventArgs e)
         {
-            
-            string script = "var windowRef = window.open('AltaDireccion.aspx', null, 'height=6500, width = 935, status=yes, resizeable=no, scrollbars= no, toolbar=no, menubar=no');";
-            script += "windowRef.focus();";
-            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "123", script, true);
-            string driSession = (string)Session["direccion"];
-            this.dropTelefono.SelectedValue = (string)Session["direccion"];
+
+            this.tablaForm.Visible = true;
 
 
         }
 
         protected void btnAltaTlf_Click(object sender, EventArgs e)
         {
-            string script = "var windowRef = window.open('AltaTlf.aspx', null, 'height=400, width = 935, status=yes, resizeable=no, scrollbars= no, toolbar=no, menubar=no');";
-            script += "windowRef.focus();";
-            this.Page.ClientScript.RegisterStartupScript(this.GetType(), "123", script, true);
-            string tlfSesion = (string)Session["telefono"];
-            this.dropTelefono.SelectedValue = (string)Session["telefono"];
+            this.tablaTlf.Visible = true;
+            
+        }
+
+        protected void btnAceptarDir_Click(object sender, EventArgs e)
+        {
+            string direccion = this.inputVia.Text + ":" + this.inputNombreVia.Text + ":" + this.inputNum.Text + ":" + this.inputPiso.Text + ":" + this.inputPuerta.Text + ":" + this.inputBloque.Text + ":" + this.inputEscalera.Text + ":" + this.inputLoc.Text;
+            this.tablaForm.Visible = false;
+            this.dropDireccion.Items.Insert(0, direccion);
+        }
+
+        protected void btnCerrarDir_Click(object sender, EventArgs e)
+        {
+            this.tablaForm.Visible = false;
+        }
+
+        protected void btnCancelarTlf_Click(object sender, EventArgs e)
+        {
+            this.tablaTlf.Visible = false;
+        }
+
+        protected void btnAceptarTlf_Click(object sender, EventArgs e)
+        {
+            this.dropTelefono.Items.Insert(0, inputTlf.Text);
+            this.tablaTlf.Visible = false;
         }
     }
 }
