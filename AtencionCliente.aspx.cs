@@ -12,7 +12,7 @@ namespace MerCadona
     public partial class AtencionCliente : System.Web.UI.Page
     {
         ControladorFicheros __controlFichero = new ControladorFicheros();
-        private string ruta = "/ficheros/RECLAMACIONES.txt";
+        private string ruta = "/ficheros/RECLAMACIONES.xml";
         protected void Page_Load(object sender, EventArgs e)
         {
             #region "es Postback"

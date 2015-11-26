@@ -12,9 +12,9 @@ namespace MerCadona.ATENCION_CLIENTE
 {
     public partial class InfoReclamaciones : System.Web.UI.Page
     {
-        private ControladorFicheros miControl;
+        private ControladorFicheros miControl = new ControladorFicheros();
         private List<Reclamacion> lista;
-        private string ruta = "../ficheros/RECLAMACIONES.txt";
+        private string ruta = "../ficheros/RECLAMACIONES.xml";
         private string rutaControl = "~/__Controles_Usuario__/ControlReclamacion.ascx";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,6 +29,8 @@ namespace MerCadona.ATENCION_CLIENTE
                     if ( clave.Contains("botonBorrar") )
                     {
                         string correo = clave.Split(new char[] { ':' })[1];
+                        miControl.borraNodo(correo, ruta);
+                        cargaReclamaciones();
                         //borrar linea de fichero donde coincida email (posicion 8);
                     }
 
@@ -37,22 +39,27 @@ namespace MerCadona.ATENCION_CLIENTE
             }
             else
             {
-                miControl = new ControladorFicheros();
-                lista = miControl.getReclamaciones(ruta);
 
-                foreach (Reclamacion r in lista)
-                {
-                    //creo control usuario y lo cargo en la tabla
-                    ControlReclamacion control = (ControlReclamacion)Page.LoadControl(rutaControl);
-                    control.Asunto = r.Asunto;
-                    control.Mensaje = r.Mensaje;
-                    control.Nombre = r.Nombre;
-                    control.Email = r.Email;
-                    control.Boton = "botonBorrar" + ":" + r.Email; //mapeo boton
+                cargaReclamaciones();
+               
 
-                    rellenaTabla(control);
-                }
+            }
+        }
+        public void cargaReclamaciones()
+        {
+            lista = miControl.getReclamaciones(ruta);
 
+            foreach (Reclamacion r in lista)
+            {
+                //creo control usuario y lo cargo en la tabla
+                ControlReclamacion control = (ControlReclamacion)Page.LoadControl(rutaControl);
+                control.Asunto = r.Asunto;
+                control.Mensaje = r.Mensaje;
+                control.Nombre = r.Nombre;
+                control.Email = r.Email;
+                control.Boton = "botonBorrar" + ":" + r.Email; //mapeo boton
+
+                rellenaTabla(control);
             }
         }
         public void rellenaTabla(ControlReclamacion c)

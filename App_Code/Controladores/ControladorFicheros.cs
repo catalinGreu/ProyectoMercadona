@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using System.Xml;
 using System.Web;
 using System.IO;
 using MerCadona.App_Code.Modelos;
@@ -103,22 +104,36 @@ namespace MerCadona.App_Code.Controladores
                     select loc).ToArray<string>();
         }
 
-        // grabo datos en fichero
+        // grabo datos en fichero XML!!!
         public bool grabaReclamacion( Reclamacion r, string ruta )
         {
-            string cadena = r.Asunto + ":" + r.Mensaje + ":" + r.Nombre + ":" + r.Apellido + ":" + r.DNI + ":"
-                            + r.Provincia + ":" + r.Localidad + ":" + r.Telefono + ":" + r.Email;
+            XmlDocument doc = new XmlDocument();
+            doc.Load(HttpContext.Current.Request.MapPath(ruta));
 
-            try
-            {
-                writer = new StreamWriter(HttpContext.Current.Request.MapPath(ruta), true);
-                writer.WriteLine(cadena);
-                writer.Close();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            XmlElement reclamacion = doc.CreateElement("reclamacion");
+
+            XmlNode asunto = doc.CreateNode("element", "asunto", "");
+            asunto.InnerText = r.Asunto;
+
+            XmlNode mensaje = doc.CreateNode("element", "mensaje", "");
+            mensaje.InnerText = r.Mensaje;
+
+            XmlNode nombre = doc.CreateNode("element", "nombre", "");
+            nombre.InnerText = r.Nombre;
+
+            XmlNode email = doc.CreateNode("element", "email", "");
+            email.InnerText = r.Email;
+
+            reclamacion.AppendChild(asunto);
+            reclamacion.AppendChild(mensaje);
+            reclamacion.AppendChild(nombre);
+            reclamacion.AppendChild(email);
+
+            XmlElement root = doc.DocumentElement;
+            root.AppendChild(reclamacion);
+
+            doc.Save(HttpContext.Current.Request.MapPath(ruta));
+
             return true;
         }
 
@@ -138,17 +153,27 @@ namespace MerCadona.App_Code.Controladores
         //Recupero reclamaciones
         public List<Reclamacion> getReclamaciones(string ruta)
         {
-            fichero = new StreamReader(HttpContext.Current.Request.MapPath(ruta));
-            return (from linea in fichero.ReadToEnd().Split(new char[] { '\r', '\n' }).Where(linea => !new System.Text.RegularExpressions.Regex("^$").Match(linea).Success)
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            return (from nodo in root.Descendants("reclamacion")
                     select new Reclamacion
                     {
-                        Asunto = linea.Split(new char[] { ':' })[0],
-                        Mensaje = linea.Split(new char[] { ':' })[1],
-                        Nombre = linea.Split(new char[] { ':' })[2],
-                        Email = linea.Split(new char[] { ':' })[8]
-
+                        Asunto = nodo.Element("asunto").Value,
+                        Mensaje = nodo.Element("mensaje").Value,
+                        Nombre = nodo.Element("nombre").Value,
+                        Email = nodo.Element("email").Value
                     }).ToList<Reclamacion>();
 
+
         }
+
+        //borro linea de fichero reclamaciones
+        public void borraNodo(string email, string ruta)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            //recorrer XML y borrar donde haya ese email.
+        }
+
     }
 }

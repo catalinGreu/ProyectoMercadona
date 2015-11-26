@@ -65,6 +65,7 @@
     <Content Include="DondeSupermercados.aspx" />
     <Content Include="ficheros\Empleados.xml" />
     <Content Include="ficheros\RECLAMACIONES.txt" />
+    <Content Include="ficheros\RECLAMACIONES.xml" />
     <Content Include="ficheros\Supermercados.xml" />
     <Content Include="imagenes\imagenes_Inicio\admin.png" />
     <Content Include="imagenes\imagenes_CompraOnline\botonCarritoFormalizar.png" />

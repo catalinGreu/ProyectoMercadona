@@ -3,3 +3,10 @@ C:\Users\Catalin\Desktop\MerCadona\MerCadona\bin\MerCadona.dll
 C:\Users\Catalin\Desktop\MerCadona\MerCadona\bin\MerCadona.pdb
 C:\Users\Catalin\Desktop\MerCadona\MerCadona\obj\Debug\MerCadona.dll
 C:\Users\Catalin\Desktop\MerCadona\MerCadona\obj\Debug\MerCadona.pdb
+C:\Users\Catalin\Desktop\MerCadona\MerCadona\obj\Debug\MerCadona.csprojResolveAssemblyReference.cache
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\MerCadona.dll.config
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\MerCadona.dll
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\MerCadona.pdb
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\obj\Debug\MerCadona.csprojResolveAssemblyReference.cache
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\obj\Debug\MerCadona.dll
+C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\obj\Debug\MerCadona.pdb
