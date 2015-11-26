@@ -25,7 +25,7 @@ namespace MerCadona
 
         protected void linkRegistro_Click(object sender, EventArgs e)
         {
-            this.Response.Redirect("RegistroClientes.aspx");
+            this.Response.Redirect("RegistroClientes2.aspx");
         }
 
         protected void imgButtonLogo_Click(object sender, ImageClickEventArgs e)
