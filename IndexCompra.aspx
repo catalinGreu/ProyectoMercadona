@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Mercadona - Bienvenido a la Compra Online</title>
     <style type="text/css">
         .auto-style1 {
             width: 334px;
@@ -64,7 +64,7 @@
                 <table style="width: 100%;">
                     <tr>
                         <td class="auto-style1">
-                            <asp:Image ID="Image1" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/imagenes_autentificacion/mercadona_horizontal.gif" />
+                            <asp:ImageButton ID="imgButtonLogo" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/imagenes_autentificacion/mercadona_horizontal.gif" OnClick="imgButtonLogo_Click" />
                         </td>
                         <td class="auto-style2">&nbsp;</td>
                         <td>
@@ -80,21 +80,23 @@
                     <tr>
                         <td class="auto-style12">
                             <asp:Image ID="Image3" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/imagenes_autentificacion/circulo2.gif" />
-                            &nbsp;<asp:LinkButton ID="linkRegistro" runat="server" Font-Bold="True" ForeColor="Black">Registrate como cliente</asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="linkRegistro" runat="server" Font-Bold="True" ForeColor="Black" OnClick="linkRegistro_Click">Registrate como cliente</asp:LinkButton>
                             <br />
                             <asp:Label ID="Label1" runat="server" Text="A través de esta opción accederá al formulario para convertirse en cliente del Supermercado on-line no teniendo que volver a escribir sus datos."></asp:Label>
                         </td>
                         <td colspan="2" rowspan="2" style="background-color: gold; position: relative;">
                             <asp:Label ID="Label2" runat="server" Text="E-Mail/Usuario   "></asp:Label>
                             <asp:TextBox ID="inputUsuario" runat="server" Width="435px" MaxLength="40"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Faltan campos" Font-Bold="True" ForeColor="#CC0000" ControlToValidate="inputUsuario"></asp:RequiredFieldValidator>
                             <br />
                             <br />
                             <asp:Label ID="Label3" runat="server" Text="Contraseña             "></asp:Label>
-                            <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style11" MaxLength="25" TextMode="Password" Width="435px"></asp:TextBox>
+                            <asp:TextBox ID="inputPass" runat="server" CssClass="auto-style11" MaxLength="25" TextMode="Password" Width="435px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="inputPass" ErrorMessage="Faltan campos" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                             <br />
                             <br />
                             <div id="buttons" style="position:relative; float:right;">
-                                <asp:Button ID="btnEntrar" runat="server" Text="ENTRAR" Font-Bold="True" ForeColor="DarkGreen" />
+                                <asp:Button ID="btnEntrar" runat="server" Text="ENTRAR" Font-Bold="True" ForeColor="DarkGreen" OnClick="btnEntrar_Click" />
                                 <asp:Button ID="btnForgot" runat="server" Text="¿Ha olvidado su contraseña?" Font-Bold="True" ForeColor="DarkGreen" OnClick="btnForgot_Click" />
 
                             </div>
@@ -103,7 +105,7 @@
                     <tr>
                         <td class="auto-style8">
                             <asp:Image ID="Image4" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/imagenes_autentificacion/circulo3.gif" />
-                            &nbsp;<asp:LinkButton ID="linkClienteRegistrado" runat="server" Font-Bold="True" ForeColor="Black">Cliente registrado</asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="linkClienteRegistrado" runat="server" Font-Bold="True" ForeColor="Black" Enabled="False">Cliente registrado</asp:LinkButton>
                         </td>
                     </tr>
                     <tr>

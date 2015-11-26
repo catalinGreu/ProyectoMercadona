@@ -185,6 +185,22 @@ namespace MerCadona.App_Code.Controladores
             root.Save(HttpContext.Current.Request.MapPath(ruta));
 
         }
+        public bool existeCliente(string email, string pass, string ruta)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            bool resultado = (from nodo in root.Descendants("cliente")
+                              let campoPass = nodo.Element("password").Value
+                              let campoEmail = nodo.Element("email").Value
+                              where campoPass == pass && campoEmail == email
+                              select true).SingleOrDefault();
+            return resultado;
+
+        }
+        public void addCliente(Cliente c, string ruta)
+        {
+            
+        }
 
 
         //Compruebo existencia del empleado

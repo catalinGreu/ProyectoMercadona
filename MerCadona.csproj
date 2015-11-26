@@ -84,6 +84,8 @@
     <Content Include="ficheros\Supermercados.xml" />
     <Content Include="imagenes\imagenes_CompraOnline\ayudaContras.png" />
     <Content Include="imagenes\imagenes_CompraOnline\bottomAyuda.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\cabeceraRegistro.png" />
+    <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\pieRegistro.png" />
     <Content Include="imagenes\imagenes_Inicio\admin.png" />
     <Content Include="imagenes\imagenes_CompraOnline\botonCarritoFormalizar.png" />
     <Content Include="imagenes\imagenes_CompraOnline\botonCarritoGuardar.png" />
@@ -94,6 +96,7 @@
     <Content Include="Inicio.aspx" />
     <Content Include="MasterCompraOnLine.Master" />
     <Content Include="NuestraEmpresaMaster.aspx" />
+    <Content Include="RegistroClientes.aspx" />
     <Content Include="__Controles_Usuario__\controlCarrito.ascx" />
     <Content Include="__Controles_Usuario__\controlListaMiniProducto.ascx" />
     <Content Include="ficheros\provincias.csv" />
@@ -235,6 +238,13 @@
       <DependentUpon>NuestraEmpresaMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroClientes.aspx.cs">
+      <DependentUpon>RegistroClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroClientes.aspx.designer.cs">
+      <DependentUpon>RegistroClientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="__Controles_Usuario__\controlCarrito.ascx.cs">
       <DependentUpon>controlCarrito.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -17,6 +17,7 @@ namespace MerCadona.App_Code.Modelos
         private string passwd;
         private string direccion; //formada por campo Calle, nº, loc...etc
         private string tlf;
+        private string fecha;
         #endregion
 
         #region "Getters & Setters"
@@ -46,12 +47,23 @@ namespace MerCadona.App_Code.Modelos
             get { return this.passwd; }
             set { this.passwd = value; }
         }
+        public string Direccion
+        {
+            get { return this.direccion; }
+            set { this.direccion = value; }
+        }
         public string Telefono
         {
             get { return this.tlf; }
             set { this.tlf = value; }
 
         }
+        public string FechaNacimiento
+        {
+            get { return this.fecha; }
+            set { this.fecha = value; }
+        }
+
         #endregion
     }
 }

@@ -8,22 +8,22 @@
     <style type="text/css">
         .auto-style1 {
             margin-left: 5px;
+            width: 726px;
         }
         .auto-style2 {
             margin-left: 62px;
         }
         .auto-style3 {
-            margin-left: 27px;
+            margin-left: 172px;
         }
         .auto-style4 {
-            margin-left: 90px;
+            margin-left: 104px;
         }
         .auto-style6 {
-            
-            width: 585px;
+            width: 611px;
         }
         .auto-style7 {
-            width: 585px;
+            width: 611px;
             margin-left: 27px;
         }
     </style>
@@ -57,7 +57,7 @@
                 <tr>
                     <td class="auto-style6">
                         <asp:Label ID="lblEmail" runat="server" Font-Bold="True" ForeColor="#339933" Text="Confirma contraseña"></asp:Label>
-                        <asp:TextBox ID="inputPass2" runat="server" CssClass="auto-style3" Width="470px" TextMode="Password" MaxLength="30"></asp:TextBox>
+                        <asp:TextBox ID="inputPass2" runat="server" CssClass="auto-style3" Width="393px" TextMode="Password" MaxLength="30"></asp:TextBox>
                     </td>
                    
                     <td>
@@ -72,7 +72,7 @@
                     
                     <td>
                         <asp:Button ID="btnEnviar" runat="server" Font-Bold="True" ForeColor="#006600" Text="Enviar" OnClick="btnEnviar_Click" />
-                        <asp:Button ID="btnCerrar" runat="server" Font-Bold="True" ForeColor="#006600" Text="Cerrar"  />
+                        <asp:Button ID="btnCerrar" runat="server" Font-Bold="True" ForeColor="#006600" Text="Cerrar" OnClick="btnCerrar_Click"  />
                     </td>
                 </tr>
                

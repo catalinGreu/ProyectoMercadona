@@ -8,6 +8,7 @@
     <password>catalingreunewpass</password>
     <direccion>C/Doctora de Alcalá, Alcalá de Henares</direccion>
     <telefono>678003725</telefono>
+    <fecha>24/06/1994</fecha>
   </cliente>
   <cliente>
     <nombre>Pedro</nombre>
@@ -17,5 +18,6 @@
     <password>pedroPEDRO</password>
     <direccion>C/Doctora de Alcalá, Alcalá de Henares</direccion>
     <telefono>678003725</telefono>
+    <fecha>24/06/1950</fecha>
   </cliente>
 </clientes>
