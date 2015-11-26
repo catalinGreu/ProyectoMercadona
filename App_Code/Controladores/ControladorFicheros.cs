@@ -11,7 +11,7 @@ namespace MerCadona.App_Code.Controladores
     public class ControladorFicheros
     {
         private StreamReader fichero;
-        private StreamWriter writer;
+        
         public string[] getProvincias(string ruta)
         {
 
@@ -21,34 +21,10 @@ namespace MerCadona.App_Code.Controladores
                     let campoProvincia = linea.Split(new char[] { ';' })[1]
                     select campoProvincia).ToArray();
 
-        }
+        }//--->provincias.csv
 
-
-        // Leo from XML
-        public List<Supermercado> getSuperFromXML(string ruta)
-        {
-            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
-
-            return (from nodo in root.Descendants("Supermercado")
-                    let loc = nodo.Parent.Attribute("Nombre").Value
-                    let dir = nodo.Element("Direccion").Value
-                    let cp = nodo.Element("CP").Value
-                    let hora = nodo.Element("Horario").Value
-                    let tlf = nodo.Element("Telefono").Value
-                    let parking = nodo.Element("Parking").Value
-                    select new Supermercado
-                    {
-                        Localidad = loc,
-                        Calle = dir,
-                        CP = cp,
-                        Horario = hora,
-                        Telefono = tlf,
-                        Parking = parking
-
-                    }).ToList<Supermercado>();
-
-        }
-
+        
+        // FICHERO Supermercados.xml
         public List<Supermercado> getSuperLoc(string ruta, string localidad)
         {
             XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
@@ -71,6 +47,29 @@ namespace MerCadona.App_Code.Controladores
                         Parking = parking
                     }
            ).ToList<Supermercado>();
+
+        }
+        public List<Supermercado> getSuperFromXML(string ruta)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            return (from nodo in root.Descendants("Supermercado")
+                    let loc = nodo.Parent.Attribute("Nombre").Value
+                    let dir = nodo.Element("Direccion").Value
+                    let cp = nodo.Element("CP").Value
+                    let hora = nodo.Element("Horario").Value
+                    let tlf = nodo.Element("Telefono").Value
+                    let parking = nodo.Element("Parking").Value
+                    select new Supermercado
+                    {
+                        Localidad = loc,
+                        Calle = dir,
+                        CP = cp,
+                        Horario = hora,
+                        Telefono = tlf,
+                        Parking = parking
+
+                    }).ToList<Supermercado>();
 
         }
         public List<Supermercado> getSuperLocYHora(string ruta, string localidad, string hora)
@@ -104,7 +103,8 @@ namespace MerCadona.App_Code.Controladores
                     select loc).ToArray<string>();
         }
 
-        // grabo datos en fichero XML!!!
+
+        //FICHERO RECLAMACIONES.xml
         public bool grabaReclamacion( Reclamacion r, string ruta )
         {
             XmlDocument doc = new XmlDocument();
@@ -136,21 +136,6 @@ namespace MerCadona.App_Code.Controladores
 
             return true;
         }
-
-        //Compruebo existencia del empleado
-        public bool compruebEmpleado(string nif, string depart, string ruta)
-        {
-            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
-
-            bool resultado = (from nodo in root.Descendants("empleado")
-                              let campoNIF = nodo.Element("nif").Value
-                              let campoDepart = nodo.Element("departamento").Value
-                              where campoNIF == nif && campoDepart == depart
-                              select true).SingleOrDefault();
-            return resultado;
-        }
-
-        //Recupero reclamaciones
         public List<Reclamacion> getReclamaciones(string ruta)
         {
             XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
@@ -166,8 +151,6 @@ namespace MerCadona.App_Code.Controladores
 
 
         }
-
-        //borro linea de fichero reclamaciones
         public void borraNodo(string email, string ruta)
         {
             XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
@@ -179,6 +162,47 @@ namespace MerCadona.App_Code.Controladores
             root.Save(HttpContext.Current.Request.MapPath(ruta));
 
         }
+
+        //FICHERO Clientes.xml
+        public bool compruebaCliente(string dni, string mail, string ruta)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            bool resultado = (from nodo in root.Descendants("cliente")
+                              let campoDNI = nodo.Element("dni").Value
+                              let campoEmail = nodo.Element("email").Value
+                              where campoDNI == dni && campoEmail == mail
+                              select true).SingleOrDefault();
+            return resultado;
+        }
+        public void cambiaPasswdCliente(string mail, string pass, string ruta)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            (from nodo in root.Descendants("cliente")
+             where nodo.Element("email").Value == mail
+             select (nodo.Element("password").Value = pass)).Single();
+            root.Save(HttpContext.Current.Request.MapPath(ruta));
+
+        }
+
+
+        //Compruebo existencia del empleado
+        public bool compruebEmpleado(string nif, string depart, string ruta)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            bool resultado = (from nodo in root.Descendants("empleado")
+                              let campoNIF = nodo.Element("nif").Value
+                              let campoDepart = nodo.Element("departamento").Value
+                              where campoNIF == nif && campoDepart == depart
+                              select true).SingleOrDefault();
+            return resultado;
+        }
+
+
+
+
 
     }
 }

@@ -18,11 +18,11 @@
         }
     </style>
 </head>
-<body style="width: 735px">
+<body style="width: 769px">
     <form id="form1" runat="server">
     <div id="container">
         <div style="" id="cabecera">
-            <asp:Image ID="Image1" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/ayudaContras.png" />
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/ayudaContras.png" Width="769px" />
         </div>
         <div id="content">
             
@@ -36,6 +36,7 @@
                     <td colspan="2">
                         <asp:Label ID="lblDNI" runat="server" Font-Bold="True" ForeColor="#339933" Text="Nº Identificación:"></asp:Label>
                         <asp:TextBox ID="inputDNI" runat="server" Width="470px" MaxLength="9"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="inputDNI" ErrorMessage="Faltan campos" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </td>
                     
                 </tr>
@@ -43,6 +44,7 @@
                     <td colspan="2">
                         <asp:Label ID="lblEmail" runat="server" Font-Bold="True" ForeColor="#339933" Text="E-mail:"></asp:Label>
                         <asp:TextBox ID="inputMail" runat="server" CssClass="auto-style2" Width="470px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="inputMail" ErrorMessage="Faltan campos" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </td>
                    
                 </tr>
@@ -58,12 +60,14 @@
                 </tr>
                
                 <tr>
-                    <td colspan="2">&nbsp;</td>
+                    <td style="text-align:center;" colspan="2">
+                        <asp:Label ID="infoEmail" runat="server" Text="Email enviado con éxito" Visible="False"></asp:Label>
+                    </td>
                 </tr>
             </table>
         </div>
         <div id="pie">
-            <asp:Image ID="Image2" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/bottomAyuda.png" Width="731px" />
+            <asp:Image ID="Image2" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/bottomAyuda.png" Width="768px" Height="122px" />
         </div>
     
     </div>

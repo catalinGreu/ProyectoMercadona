@@ -10,7 +10,7 @@
 namespace MerCadona {
     
     
-    public partial class AyudaContras {
+    public partial class AyudaConfirmarPass {
         
         /// <summary>
         /// form1 control.
@@ -31,13 +31,22 @@ namespace MerCadona {
         protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
-        /// lblInfo control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInfo;
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// inputEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputEmail;
         
         /// <summary>
         /// lblDNI control.
@@ -49,22 +58,22 @@ namespace MerCadona {
         protected global::System.Web.UI.WebControls.Label lblDNI;
         
         /// <summary>
-        /// inputDNI control.
+        /// inputPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputDNI;
+        protected global::System.Web.UI.WebControls.TextBox inputPass;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// CompareValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
         
         /// <summary>
         /// lblEmail control.
@@ -76,22 +85,22 @@ namespace MerCadona {
         protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
-        /// inputMail control.
+        /// inputPass2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputMail;
+        protected global::System.Web.UI.WebControls.TextBox inputPass2;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// CompareValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
         
         /// <summary>
         /// btnEnviar control.
@@ -112,13 +121,13 @@ namespace MerCadona {
         protected global::System.Web.UI.WebControls.Button btnCerrar;
         
         /// <summary>
-        /// infoEmail control.
+        /// labelInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label infoEmail;
+        protected global::System.Web.UI.WebControls.Label labelInfo;
         
         /// <summary>
         /// Image2 control.

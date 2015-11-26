@@ -11,10 +11,13 @@ namespace MerCadona
     public partial class AyudaContras : System.Web.UI.Page
     {
         private ControladorEmail controlMail;
+        private ControladorFicheros controlFichero;
+        private string ruta = "/ficheros/Clientes.xml";
         protected void Page_Load(object sender, EventArgs e)
         {
+            controlFichero = new ControladorFicheros();
             this.inputDNI.Focus();
-            
+
         }
 
         protected void btnCerrar_Click(object sender, EventArgs e)
@@ -24,14 +27,28 @@ namespace MerCadona
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            //llamo controlador de Email que manda correo al cliente..
-            //comproban que antes exista!!!! Crear XML CLientes.
-            
-            string to = this.inputMail.Text;
+            //CREAR XML CLIENTES Y VER SI EXISTIA....
+            if (this.IsValid)
+            {
+                string dni = this.inputDNI.Text;
+                string mail = this.inputMail.Text;
+                bool existe = controlFichero.compruebaCliente(dni, mail, ruta);
 
-            controlMail = new ControladorEmail(to);
-            //se me abre de nuevo la misma ayuda para probar...
-           
+                if ( existe )
+                {
+                    string to = this.inputMail.Text;
+
+                    controlMail = new ControladorEmail(to);
+                    this.lblInfo.Visible = true;
+                }
+            }
+
+            else
+            {
+                return;
+            }
+
+
 
         }
     }

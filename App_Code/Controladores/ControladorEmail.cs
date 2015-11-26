@@ -19,7 +19,7 @@ namespace MerCadona.App_Code.Controladores
                               + " de recordatorio de password.\n"
                               + "Su usuario es: " + to + "\n"
                               + " Acceda al siguiente enclace para cambiar su contraseña: \n"
-                              + "http://localhost:2243/AyudaConfirmarPass.aspx";
+                              + "http://localhost:2243/AyudaConfirmarPass.aspx?email=" + to;
 
             SmtpClient cliente = new SmtpClient();
             cliente.DeliveryMethod = SmtpDeliveryMethod.Network;

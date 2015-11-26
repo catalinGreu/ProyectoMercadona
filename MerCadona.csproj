@@ -73,9 +73,11 @@
     <Content Include="AtencionCliente.aspx" />
     <Content Include="ATENCION_CLIENTE\InfoReclamaciones.aspx" />
     <Content Include="ATENCION_CLIENTE\LoginAdmin.aspx" />
+    <Content Include="AyudaConfirmarPass.aspx" />
     <Content Include="AyudaContras.aspx" />
     <Content Include="DondeEstamos.aspx" />
     <Content Include="DondeSupermercados.aspx" />
+    <Content Include="ficheros\Clientes.xml" />
     <Content Include="ficheros\Empleados.xml" />
     <Content Include="ficheros\RECLAMACIONES.txt" />
     <Content Include="ficheros\RECLAMACIONES.xml" />
@@ -144,6 +146,7 @@
   <ItemGroup>
     <Compile Include="App_Code\Controladores\ControladorEmail.cs" />
     <Compile Include="App_Code\Controladores\ControladorFicheros.cs" />
+    <Compile Include="App_Code\Modelos\Cliente.cs" />
     <Compile Include="App_Code\Modelos\Empleado.cs" />
     <Compile Include="App_Code\Modelos\Reclamacion.cs" />
     <Compile Include="App_Code\Modelos\Supermercado.cs" />
@@ -167,6 +170,13 @@
     </Compile>
     <Compile Include="ATENCION_CLIENTE\LoginAdmin.aspx.designer.cs">
       <DependentUpon>LoginAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AyudaConfirmarPass.aspx.cs">
+      <DependentUpon>AyudaConfirmarPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AyudaConfirmarPass.aspx.designer.cs">
+      <DependentUpon>AyudaConfirmarPass.aspx</DependentUpon>
     </Compile>
     <Compile Include="AyudaContras.aspx.cs">
       <DependentUpon>AyudaContras.aspx</DependentUpon>

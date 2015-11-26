@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<clientes>
+  <cliente>
+    <nombre>Catalin</nombre>
+    <apellido>Greu</apellido>
+    <dni>X3782096E</dni>
+    <email>catalin_greu@hotmail.com</email>
+    <password>catalingreunewpass</password>
+    <direccion>C/Doctora de Alcalá, Alcalá de Henares</direccion>
+    <telefono>678003725</telefono>
+  </cliente>
+  <cliente>
+    <nombre>Pedro</nombre>
+    <apellido>Garcia</apellido>
+    <dni>X123456</dni>
+    <email>pedrogarcia@hotmail.com</email>
+    <password>pedroPEDRO</password>
+    <direccion>C/Doctora de Alcalá, Alcalá de Henares</direccion>
+    <telefono>678003725</telefono>
+  </cliente>
+</clientes>
