@@ -64,7 +64,7 @@
                 <table style="width: 100%;">
                     <tr>
                         <td class="auto-style1">
-                            <asp:ImageButton ID="imgButtonLogo" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/imagenes_autentificacion/mercadona_horizontal.gif" OnClick="imgButtonLogo_Click" />
+                            <asp:ImageButton ID="imgButtonLogo" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/imagenes_autentificacion/mercadona_horizontal.gif" OnClick="imgButtonLogo_Click" CausesValidation="false"/>
                         </td>
                         <td class="auto-style2">&nbsp;</td>
                         <td>
@@ -80,7 +80,7 @@
                     <tr>
                         <td class="auto-style12">
                             <asp:Image ID="Image3" runat="server" ImageUrl="~/imagenes/imagenes_CompraOnline/imagenes_autentificacion/circulo2.gif" />
-                            &nbsp;<asp:LinkButton ID="linkRegistro" runat="server" Font-Bold="True" ForeColor="Black" OnClick="linkRegistro_Click">Registrate como cliente</asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="linkRegistro" runat="server" Font-Bold="True" ForeColor="Black" OnClick="linkRegistro_Click" CausesValidation="false">Registrate como cliente</asp:LinkButton>
                             <br />
                             <asp:Label ID="Label1" runat="server" Text="A través de esta opción accederá al formulario para convertirse en cliente del Supermercado on-line no teniendo que volver a escribir sus datos."></asp:Label>
                         </td>
@@ -97,7 +97,7 @@
                             <br />
                             <div id="buttons" style="position:relative; float:right;">
                                 <asp:Button ID="btnEntrar" runat="server" Text="ENTRAR" Font-Bold="True" ForeColor="DarkGreen" OnClick="btnEntrar_Click" />
-                                <asp:Button ID="btnForgot" runat="server" Text="¿Ha olvidado su contraseña?" Font-Bold="True" ForeColor="DarkGreen" OnClick="btnForgot_Click" />
+                                <asp:Button ID="btnForgot" runat="server" Text="¿Ha olvidado su contraseña?" Font-Bold="True" ForeColor="DarkGreen" OnClick="btnForgot_Click" CausesValidation="false"/>
 
                             </div>
                         </td>

@@ -21,6 +21,18 @@
         .auto-style5 {
             width: 346px;
         }
+        .auto-style6 {
+            width: 346px;
+            height: 57px;
+        }
+        .auto-style7 {
+            width: 393px;
+            height: 57px;
+        }
+        .auto-style8 {
+            width: 441px;
+            height: 57px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -96,32 +108,45 @@
                     <td class="auto-style1">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">
+                    <td class="auto-style6">
                         <asp:Label ID="Label7" runat="server" Text="*Email/Usuario de acceso:" CssClass="labelsForm"></asp:Label>
                         <br />
                         <asp:TextBox ID="inputEmail" runat="server" CssClass="inputs"></asp:TextBox>
                         <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="ipnutEmail2" ControlToValidate="inputEmail" ErrorMessage="No coinciden" Font-Bold="True" ForeColor="#CC0000"></asp:CompareValidator>
                     </td>
-                    <td class="auto-style2">
+                    <td class="auto-style7">
                         <asp:Label ID="Label8" runat="server" Text="*Confirmación E-mail" CssClass="labelsForm"></asp:Label>
                         <br />
                         <asp:TextBox ID="ipnutEmail2" runat="server" CssClass="inputs"></asp:TextBox>
                         <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToCompare="inputEmail" ControlToValidate="ipnutEmail2" ErrorMessage="No coinciden" Font-Bold="True" ForeColor="#CC0000"></asp:CompareValidator>
                     </td>
-                    <td class="auto-style1">
+                    <td class="auto-style8">
                         <asp:Label ID="Label9" runat="server" Text="*Fecha de nacimiento" CssClass="labelsForm"></asp:Label>
                         <br />
-                        <asp:DropDownList ID="dropDia" runat="server" Height="16px" Width="48px">
+                        <asp:DropDownList ID="dropDia" runat="server" Height="20px" Width="40 px">
+                            <asp:ListItem Selected="True"></asp:ListItem>
                         </asp:DropDownList>
                         <asp:DropDownList ID="dropMes" runat="server">
+                            <asp:ListItem Selected="True"></asp:ListItem>
                         </asp:DropDownList>
                         <asp:DropDownList ID="dropAnio" runat="server">
+                            <asp:ListItem Selected="True"></asp:ListItem>
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style5">
+                        <asp:Label ID="Label13" runat="server" CssClass="labelsForm" Text="*Contraseña"></asp:Label>
+                        <br />
+                        <asp:TextBox ID="inputPasswd" runat="server" CssClass="inputs" TextMode="Password"></asp:TextBox>
+                        <asp:CompareValidator ID="CompareValidator3" runat="server" ControlToCompare="inputPass2" ControlToValidate="inputPasswd" ErrorMessage="No coinciden" Font-Bold="True" ForeColor="#CC0000"></asp:CompareValidator>
+                    </td>
+                    <td class="auto-style2">
+                        <asp:Label ID="Label14" runat="server" CssClass="labelsForm" Text="*Repite contraseña"></asp:Label>
+                        <br />
+                        <asp:TextBox ID="inputPass2" runat="server" CssClass="inputs" TextMode="Password"></asp:TextBox>
+                        <asp:CompareValidator ID="CompareValidator4" runat="server" ControlToCompare="inputPasswd" ControlToValidate="inputPass2" ErrorMessage="No coinciden" Font-Bold="True" ForeColor="#CC0000"></asp:CompareValidator>
+                    </td>
                     <td class="auto-style1">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="dropDia" ErrorMessage="Dia" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -136,10 +161,9 @@
                         <asp:DropDownList ID="dropDireccion" runat="server">
                         </asp:DropDownList>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="dropDireccion" ErrorMessage="Falta dirección" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
-                    </td>
+                        </td>
                     <td class="auto-style2">
-                        <asp:Button ID="btnAltaDir" runat="server" Text="ALTA" Width="94px" Font-Bold="True" ForeColor="#006600" />
+                        <asp:Button ID="btnAltaDir" runat="server" Text="ALTA" Width="94px" Font-Bold="True" ForeColor="#006600" OnClick="btnAltaDir_Click" CausesValidation="false" />
                     </td>
                     <td class="auto-style1">&nbsp;</td>
                 </tr>
@@ -149,10 +173,9 @@
                         <asp:DropDownList ID="dropTelefono" runat="server">
                         </asp:DropDownList>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="dropTelefono" ErrorMessage="Falta teléfono" Font-Bold="True" ForeColor="#CC0000"></asp:RequiredFieldValidator>
-                    </td>
+                        </td>
                     <td class="auto-style2">
-                        <asp:Button ID="btnAltaTlf" runat="server" Text="ALTA" Width="94px" Font-Bold="True" ForeColor="#006600" />
+                        <asp:Button ID="btnAltaTlf" runat="server" Text="ALTA" Width="94px" Font-Bold="True" ForeColor="#006600" OnClick="btnAltaTlf_Click" CausesValidation="false"/>
                     </td>
                     <td class="auto-style1">&nbsp;</td>
                 </tr>
@@ -169,7 +192,7 @@
                     </td>
                     <td class="auto-style1">
                         <asp:Button ID="btnEnviarAlta" runat="server" Font-Bold="True" Font-Size="Smaller" ForeColor="#003300" OnClick="btnEnviarAlta_Click" Text="ENVIAR ALTA" />
-                        <asp:Button ID="Button1" runat="server" Font-Bold="True" Font-Size="Smaller" ForeColor="#003300" OnClick="Button1_Click" Text="CERRAR" />
+                        <asp:Button ID="btnCerrar" runat="server" Font-Bold="True" Font-Size="Smaller" ForeColor="#003300" OnClick="Button1_Click" Text="CERRAR" CausesValidation="false" />
                     </td>
                 </tr>
                 <tr>
