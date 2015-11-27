@@ -152,6 +152,7 @@
     <Compile Include="App_Code\Controladores\ControladorFicheros.cs" />
     <Compile Include="App_Code\Modelos\Cliente.cs" />
     <Compile Include="App_Code\Modelos\Empleado.cs" />
+    <Compile Include="App_Code\Modelos\Producto.cs" />
     <Compile Include="App_Code\Modelos\Reclamacion.cs" />
     <Compile Include="App_Code\Modelos\Supermercado.cs" />
     <Compile Include="AtencionCliente.aspx.cs">

@@ -284,6 +284,20 @@ namespace MerCadona.App_Code.Controladores
             //        select nodo).Nodes();
             return null;
         }
+        public List<Producto> getProductoSubseccion(string subseccion, string ruta)
+        {
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
+
+            return (from nodo in root.Descendants("Producto")
+                    where nodo.Parent.Attribute("Nombre").Value == subseccion
+                    select new Producto
+                    {
+                        Descripcion = nodo.Value,
+                        Precio = Convert.ToDecimal(nodo.Attribute("Precio").Value),
+                        Seccion = nodo.Parent.Parent.Attribute("Nombre").Value,
+                        Subseccion = nodo.Parent.Attribute("Nombre").Value
+                    }).ToList<Producto>();
+        }
 
 
 
