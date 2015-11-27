@@ -5,12 +5,13 @@
     }
     .auto-style2 {
         width: 520px;
+        text-align:center;
     }
     .auto-style3 {
         width: 1000px;
     }
 </style>
-<table style="width:200px; background-color: #FFCC66; border: thin solid #FF9933;">
+<table style="width:800px; height:50px; background-color: #FFCC66; border: thin solid #FF9933;">
     <tr>
         <td class="auto-style3"><asp:Label ID="LblMiniProducto" runat="server" Text="producto" style="text-align:center" Font-Size="Small"></asp:Label></td>
         <td class="auto-style2">

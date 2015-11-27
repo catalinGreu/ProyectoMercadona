@@ -9,6 +9,8 @@ using MerCadona.App_Code.Modelos;
 using MerCadona.__Controles_Usuario__;
 using System.Xml;
 using System.Xml.Linq;
+using System.Drawing;
+
 namespace MerCadona
 {
     public partial class CompraOnline : System.Web.UI.Page
@@ -16,8 +18,8 @@ namespace MerCadona
         private ControladorFicheros controlFichero;
         private Cliente cliente;
         private string rutaXML = "ficheros/Clientes.xml";
-        private string rutaControlCarrito = "~__Controles_Usuario__/controlCarrito.ascx";
-        private string rutaControlProducto = "~__Controles_Usuario__/controlListaMiniProducto.ascx";
+        private string rutaControlCarrito = "~/__Controles_Usuario__/controlCarrito.ascx";
+        private string rutaControlProducto = "~/__Controles_Usuario__/controlListaMiniProducto.ascx";
         private string rutaSecciones = "ficheros/SECCIONES_SUBSECCIONES.xml";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -81,9 +83,13 @@ namespace MerCadona
                     switch (clave)
                     {
                         case "__EVENTTARGET":
-
+                            string nodo = this.Request.Params["__EVENTARGUMENT"];
                             if (claveRequest.Contains(tree.ID))
                             {
+                                if ( nodo.Contains("Fruta") || nodo.Contains("Verduras") || nodo.Contains("Lacteos"))
+                                {
+                                    
+                                }
                                 char[] separador = new char[] { '\\' };
                                 string subseccion = this.Request.Params["__EVENTARGUMENT"].ToString().Split(separador)[1];
 
@@ -105,12 +111,31 @@ namespace MerCadona
         }
         public void rellenaTablaConProductos(List<Producto> lista)
         {
+            TableRow row = new TableRow();
+            row.BackColor = Color.LightSalmon;
+            TableCell cell = new TableCell();
+            Label l = new Label();
+            l.Font.Bold = true;
+            l.Text = lista[0].Subseccion; ;
+            cell.Controls.Add(l);
+            row.Cells.Add(cell);
+            this.tablaProductos.Rows.Add(row);
+
             foreach ( Producto p in lista )
             {
                 controlListaMiniProducto micontrol = (controlListaMiniProducto)Page.LoadControl(rutaControlProducto);
                 micontrol.Producto = p.Descripcion;
                 micontrol.Precio = p.Precio;
                 //quiza haya que mapear algo....
+                TableRow row2 = new TableRow();
+                
+                TableCell cell2 = new TableCell();
+                Label cat = new Label();
+                cat.Text = p.Subseccion;
+                cat.Font.Bold = true;               
+                cell.Controls.Add(micontrol);
+                row.Cells.Add(cell2);
+                this.tablaProductos.Rows.Add(row2);
             }
         }
         private void mostrar()
