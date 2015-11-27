@@ -68,10 +68,10 @@
             <td class="style9">
                 <asp:Button ID="BotonInicio" runat="server" BackColor="#006633" BorderColor="White" 
                     BorderStyle="Outset" Font-Bold="True" Font-Size="X-Small" ForeColor="#CCFFB5" 
-                    Text="Inicio" style="height: 20px" />
+                    Text="Inicio" style="height: 20px" OnClick="BotonInicio_Click" />
                 <asp:Button ID="BotonDonde" runat="server" BackColor="#006633" BorderColor="White" 
                     BorderStyle="Outset" Font-Bold="True" Font-Size="X-Small" ForeColor="#CCFFB5" 
-                    Text="¿Donde estamos?" Width="114px" style="margin-left: 10px" />
+                    Text="¿Donde estamos?" Width="114px" style="margin-left: 10px" OnClick="BotonDonde_Click" />
                 <asp:Button ID="BotonSeguridad" runat="server" BackColor="#006633" BorderColor="White" 
                     BorderStyle="Outset" Font-Bold="True" Font-Size="X-Small" ForeColor="#CCFFB5" 
                     Text="Seguridad" style="margin-left: 10px" Width="96px" />
@@ -140,23 +140,6 @@
                                      <HoverNodeStyle Font-Underline="True" ForeColor="Black" BorderColor="#CC0000" />
                                      <SelectedNodeStyle Font-Underline="True" ForeColor="#FFFF66" 
                                          HorizontalPadding="0px" VerticalPadding="0px" />
-                                     <Nodes>
-                                         <asp:TreeNode Text="SECCION-1" Value="SECCION-1">
-                                             <asp:TreeNode Text="SUB-Seccion-1.1" Value="SUB-Seccion-1.1"></asp:TreeNode>
-                                             <asp:TreeNode Text="SUB-Seccion-1.2" Value="SUB-Seccion-1.2"></asp:TreeNode>
-                                             <asp:TreeNode Text="SUB-Seccion-1.3" Value="SUB-Seccion-1.3"></asp:TreeNode>
-                                         </asp:TreeNode>
-                                         <asp:TreeNode Text="SECCION-2" Value="SECCION-2">
-                                             <asp:TreeNode Text="SUB-Seccion-2.1" Value="SUB-Seccion-2.1"></asp:TreeNode>
-                                             <asp:TreeNode Text="SUB-Seccion-2.2" Value="SUB-Seccion-2.2"></asp:TreeNode>
-                                             <asp:TreeNode Text="SUB-Seccion-2.3" Value="SUB-Seccion-2.3"></asp:TreeNode>
-                                         </asp:TreeNode>
-                                         <asp:TreeNode Text="SECCION-3" Value="SECCION-3">
-                                             <asp:TreeNode Text="SUB-Seccion-3.1" Value="SUB-Seccion-3.1"></asp:TreeNode>
-                                             <asp:TreeNode Text="SUB-Seccion-3.2" Value="SUB-Seccion-3.2"></asp:TreeNode>
-                                             <asp:TreeNode Text="SUB-Seccion-3.3" Value="SUB-Seccion-3.3"></asp:TreeNode>
-                                         </asp:TreeNode>
-                                     </Nodes>
                                      <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="White" 
                                          HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
                                  </asp:TreeView>

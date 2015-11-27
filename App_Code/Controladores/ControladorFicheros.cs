@@ -6,12 +6,14 @@ using System.Xml;
 using System.Web;
 using System.IO;
 using MerCadona.App_Code.Modelos;
+using System.Web.UI.WebControls;
+
 namespace MerCadona.App_Code.Controladores
 {
     public class ControladorFicheros
     {
         private StreamReader fichero;
-        
+
         public string[] getProvincias(string ruta)
         {
 
@@ -23,7 +25,7 @@ namespace MerCadona.App_Code.Controladores
 
         }//--->provincias.csv
 
-        
+
         // FICHERO Supermercados.xml
         public List<Supermercado> getSuperLoc(string ruta, string localidad)
         {
@@ -105,7 +107,7 @@ namespace MerCadona.App_Code.Controladores
 
 
         //FICHERO RECLAMACIONES.xml
-        public bool grabaReclamacion( Reclamacion r, string ruta )
+        public bool grabaReclamacion(Reclamacion r, string ruta)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(HttpContext.Current.Request.MapPath(ruta));
@@ -272,7 +274,16 @@ namespace MerCadona.App_Code.Controladores
             return resultado;
         }
 
+        //FICHERO SECCIONES_SUBSECCIONES.xml
+        public XElement getSecciones(string ruta)
+        {
+            ////int contador = 0;
+            //XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
 
+            //return (from nodo in root.Descendants("Seccion")
+            //        select nodo).Nodes();
+            return null;
+        }
 
 
 

@@ -13,7 +13,7 @@ namespace MerCadona
         private string ruta = "ficheros/Clientes.xml";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.inputUsuario.Focus();
         }
 
         protected void btnForgot_Click(object sender, EventArgs e)
@@ -50,6 +50,7 @@ namespace MerCadona
             }
             else
             {
+                this.labelInfo.Visible = true;
                 return;
             }
         }

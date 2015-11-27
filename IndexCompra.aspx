@@ -100,6 +100,7 @@
                                 <asp:Button ID="btnForgot" runat="server" Text="¿Ha olvidado su contraseña?" Font-Bold="True" ForeColor="DarkGreen" OnClick="btnForgot_Click" CausesValidation="false"/>
 
                             </div>
+                            <asp:Label ID="labelInfo" runat="server" Font-Bold="True" ForeColor="#CC0000" Text="Usuario no existe!" Visible="False"></asp:Label>
                         </td>
                     </tr>
                     <tr>

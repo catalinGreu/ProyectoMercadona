@@ -13,5 +13,15 @@ namespace MerCadona
         {
 
         }
+
+        protected void BotonInicio_Click(object sender, EventArgs e)
+        {
+            this.Response.Redirect("Inicio.aspx");
+        }
+
+        protected void BotonDonde_Click(object sender, EventArgs e)
+        {
+            this.Response.Redirect("DondeEstamos.aspx");
+        }
     }
 }
