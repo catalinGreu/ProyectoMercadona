@@ -20,8 +20,7 @@ namespace MerCadona.ATENCION_CLIENTE
         {
             if (this.IsPostBack)
             {
-                mostrarClaves();
-
+                
                 foreach (string clave in this.Request.Params.Keys)
                 {
                     string claveRequest = this.Request.Params[clave];
@@ -70,16 +69,7 @@ namespace MerCadona.ATENCION_CLIENTE
             row.Cells.Add(cell);
             this.tablaReclamacion.Rows.Add(row);
         }
-        private void mostrarClaves()
-        {
-            string mensaje = "";
-            foreach (string clave in this.Request.Params.Keys)
-            {
-                mensaje += "Clave: " + clave + "///Valor===>" + this.Request.Params[clave].ToString() + "\n";
-                this.TextBox1.Text = mensaje;
-            }
-        }
-
+        
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             this.Response.Redirect("../Inicio.aspx");

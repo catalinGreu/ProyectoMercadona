@@ -23,5 +23,10 @@ namespace MerCadona
         {
             this.Response.Redirect("DondeEstamos.aspx");
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            this.Response.Redirect("IndexCompra.aspx");
+        }
     }
 }

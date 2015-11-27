@@ -5,7 +5,7 @@
     <apellido>Greu</apellido>
     <dni>X3782096E</dni>
     <email>catalin_greu@hotmail.com</email>
-    <password>12345</password>
+    <password>aaaaa</password>
     <direccion>C/Doctora de Alcalá, Alcalá de Henares</direccion>
     <telefono>678003725</telefono>
     <fecha>24/06/1994</fecha>
@@ -14,7 +14,7 @@
     <nombre>Pedro</nombre>
     <apellido>Garcia</apellido>
     <dni>X123456</dni>
-    <email>pedrogarcia@hotmail.com</email>
+    <email>asasas@yahoo.es</email>
     <password>pedroPEDRO</password>
     <direccion>C/Doctora de Alcalá, Alcalá de Henares</direccion>
     <telefono>678003725</telefono>
@@ -49,5 +49,15 @@
     <direccion> asdasd      asdasd</direccion>
     <telefono>212312311</telefono>
     <fecha>212312311</fecha>
+  </cliente>
+  <cliente>
+    <nombre>Fedor</nombre>
+    <apellido>Emilianenko</apellido>
+    <dni>88988988</dni>
+    <email>fedor@ironfists.com</email>
+    <password>iliketopunch</password>
+    <direccion>Callejuela Cortada 0 1 A  no tengo Moskowa</direccion>
+    <telefono>654123000</telefono>
+    <fecha>15/Marzo/1977</fecha>
   </cliente>
 </clientes>

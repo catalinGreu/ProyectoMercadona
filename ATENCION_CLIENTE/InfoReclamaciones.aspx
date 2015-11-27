@@ -20,7 +20,6 @@
 
         </div>
         <div id="pie">
-            <asp:TextBox ID="TextBox1" runat="server" Height="85px" TextMode="MultiLine" Width="180px"></asp:TextBox>
         </div>
     </div>
     </form>

@@ -156,6 +156,8 @@
                             <div style="height: 47px; width: 828px">
 &nbsp;&nbsp; Nuevo Pedido - 
                                 <asp:Label ID="LabelDireccion" runat="server" Text="---aqui iria direccion cliente--"></asp:Label>
+                                    &nbsp;&nbsp;
+                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Cerrar sesión</asp:LinkButton>
                                     </div>
                                 </td>
                             </tr>

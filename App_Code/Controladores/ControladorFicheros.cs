@@ -274,16 +274,7 @@ namespace MerCadona.App_Code.Controladores
             return resultado;
         }
 
-        //FICHERO SECCIONES_SUBSECCIONES.xml
-        public XElement getSecciones(string ruta)
-        {
-            ////int contador = 0;
-            //XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
-
-            //return (from nodo in root.Descendants("Seccion")
-            //        select nodo).Nodes();
-            return null;
-        }
+        
         public List<Producto> getProductoSubseccion(string subseccion, string ruta)
         {
             XElement root = XElement.Load(HttpContext.Current.Request.MapPath(ruta));
@@ -296,10 +287,9 @@ namespace MerCadona.App_Code.Controladores
                         Precio = Convert.ToDecimal(nodo.Attribute("Precio").Value),
                         Seccion = nodo.Parent.Parent.Attribute("Nombre").Value,
                         Subseccion = nodo.Parent.Attribute("Nombre").Value
-                    }).ToList<Producto>();
+                    }).ToList<Producto>();/* He comentado el XML porq no sabia como
+                                            decirle que solo coja 4 en una consulta Linq...*/
         }
-
-
 
     }
 }

@@ -42,6 +42,7 @@ namespace MerCadona.App_Code.Controladores
             catch (Exception e)
             {
                 e.ToString();
+                return;
             }
 
         }

@@ -5,12 +5,14 @@ using System.Web;
 
 namespace MerCadona.App_Code.Modelos
 {
+    [Serializable()]
     public class Producto
     {
         public string descripcion;
         public decimal precio;
         public string seccion;
         public string subseccion;
+
         public Producto() { }
 
         public string Descripcion
@@ -32,6 +34,11 @@ namespace MerCadona.App_Code.Modelos
         {
             get { return this.subseccion; }
             set { this.subseccion = value; }
+        }
+        public String toString()
+        {
+            return "Descripcion: " + this.descripcion + " " + "Precio: " 
+                + this.precio + "Seccion: " + this.seccion;
         }
 
     }

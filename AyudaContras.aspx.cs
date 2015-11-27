@@ -27,25 +27,27 @@ namespace MerCadona
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
+            string dni = this.inputDNI.Text;
+            string mail = this.inputMail.Text;
             //CREAR XML CLIENTES Y VER SI EXISTIA....
             if (this.IsValid)
             {
-                string dni = this.inputDNI.Text;
-                string mail = this.inputMail.Text;
                 bool existe = controlFichero.compruebaCliente(dni, mail, ruta);
 
-                if ( existe )
+                if (existe)
                 {
                     string to = this.inputMail.Text;
 
                     controlMail = new ControladorEmail(to);
-                    this.lblInfo.Visible = true;
+                   
+                    this.infoEmail.Visible = true;
                 }
             }
 
             else
-            {
+            {                
                 return;
+
             }
 
 

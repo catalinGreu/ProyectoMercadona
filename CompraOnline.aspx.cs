@@ -23,10 +23,14 @@ namespace MerCadona
         private string rutaControlItems = "~/__Controles_Usuario__/ControlItems.ascx";
         private string rutaSecciones = "ficheros/SECCIONES_SUBSECCIONES.xml";
         List<Producto> lista;
+        List<Producto> l;
+        controlCarrito control;
+        //List<Producto> listaViewState;
         Table tablaDeCarrito;
+        TreeView tree;
         protected void Page_Load(object sender, EventArgs e)
         {
-            TreeView tree = (TreeView)this.Master.FindControl("TreeView1");
+            tree = (TreeView)this.Master.FindControl("TreeView1");
             Label lblDireccion = (Label)this.Master.FindControl("LabelDireccion");
 
             controlFichero = new ControladorFicheros();
@@ -38,44 +42,18 @@ namespace MerCadona
                 cliente = controlFichero.getCliente(email, rutaXML);
                 lblDireccion.Text = "Usuario: " + cliente.Nombre + ". Direccion: " + cliente.Direccion;
 
-
-                #region "cargo tree a mano"
-                XElement root = XElement.Load(HttpContext.Current.Request.MapPath(rutaSecciones));
-                foreach (XElement seccion in root.Descendants("Seccion"))
-                {
-                    TreeNode parentSecc = new TreeNode();
-                    parentSecc.Text = seccion.Attribute("Nombre").Value;
-                    tree.Nodes.Add(parentSecc);
-
-                    foreach (XElement subseccion in seccion.Descendants("SubSeccion"))
-                    {
-                        TreeNode childSubsecc = new TreeNode();
-                        childSubsecc.Text = subseccion.Attribute("Nombre").Value;
-                        parentSecc.ChildNodes.Add(childSubsecc);
-
-                        foreach (XElement producto in subseccion.Descendants("Producto"))
-                        {
-                            TreeNode childProd = new TreeNode();
-                            childProd.Text = producto.Value + producto.Attribute("Precio");
-                            childSubsecc.ChildNodes.Add(childProd);
-                            //++contador;
-                            //if ( contador == 4 )
-                            //{
-                            //    contador = 0;
-                            //    break;
-                            //}
-                            //CUTRE Q TE CAGAAAAS!!
-                        }
-
-                    }
+                cargaTree();
+                ViewState["listaproductos"] = new List<Producto>();
 
 
-                }
-                #endregion
 
             }
             else if (this.IsPostBack)
             {
+                //si es postback se me borra la cesta
+                //la cargo SIEMPRE
+                l = (List<Producto>)ViewState["listaproductos"];
+                actualizaCarrito(l);
                 mostrar();
                 foreach (string clave in this.Request.Params.AllKeys)
                 {
@@ -96,6 +74,7 @@ namespace MerCadona
                                 }
                                 catch (IndexOutOfRangeException)
                                 {
+
                                     return;
                                 }
 
@@ -103,6 +82,7 @@ namespace MerCadona
                                 rellenaTablaConProductos(lista);
                             }
                             break;
+
                         default:
                             break;
 
@@ -110,23 +90,64 @@ namespace MerCadona
 
                     if (claveRequest.Equals("Añadir"))
                     {
+                        //significa que han añadido algo
+                        // tengo que tener un 'actualizaCEsta', que lea el ViewState
+
                         string descripcion = clave.Split(new char[] { '$' })[3];
                         string sub = (string)Session["subActual"];
                         lista = controlFichero.getProductoSubseccion(sub, rutaSecciones);
                         Producto p = (from prod in lista
                                       where prod.Descripcion == descripcion
                                       select prod).Single();
-                        controlListaMiniProducto minicontrol = (controlListaMiniProducto)Page.LoadControl(rutaControlProducto);
-                        minicontrol.Producto = p.Descripcion;
-                        minicontrol.Precio = p.Precio;
-                        
-                        addToCarrito(minicontrol, tablaDeCarrito);
+
+                        // almacenar en una listaViewState los objetos pulsados
+                        addToViewState(p);//--> solo añado, Actualizo cuando hace postback
+
+                        // por otro lado leer la lista para cargar el controlCesta
+                        l = (List <Producto> )ViewState["listaproductos"];
+                        actualizaCarrito( l );
+
                         rellenaTablaConProductos(lista);
                     }
 
 
                 }
             }
+        }
+        public void addToViewState(Producto p)
+        {
+            if (ViewState["listaproductos"] == null)
+            {
+                //this.listaViewState = new List<Producto>();
+                ViewState["listaproductos"] = new List<Producto>();
+                var lista = (List<Producto>)ViewState["listaproductos"];
+                lista.Add(p);
+            }
+            else
+            {// si ya existe
+
+                var lista = (List<Producto>)ViewState["listaproductos"];
+                lista.Add(p);
+            }
+
+        }
+        public void actualizaCarrito(List<Producto> lista)
+        {
+            decimal total = 0;
+            decimal iva = 0;
+            tablaDeCarrito.Controls.Clear();
+            foreach (Producto p in lista)
+            {
+                controlListaMiniProducto minicontrol = (controlListaMiniProducto)Page.LoadControl(rutaControlProducto);
+                minicontrol.Producto = p.Descripcion;
+                minicontrol.Precio = p.Precio;
+                total += p.Precio;
+
+                addToCarrito(minicontrol, tablaDeCarrito);
+            }
+            iva = (total * 10) / 100;
+            this.control.IVA = iva;
+            this.control.Total = total + iva;
         }
         public void rellenaTablaConProductos(List<Producto> lista)
         {
@@ -146,8 +167,8 @@ namespace MerCadona
                 ControlItems micontrol = (ControlItems)Page.LoadControl(rutaControlItems);
                 micontrol.Descripcion = p.Descripcion;
                 micontrol.Precio = p.Precio;
-                micontrol.Boton = p.Descripcion;
-                //quiza haya que mapear algo....
+                micontrol.Boton = p.Descripcion;//---> mapeo boton                
+
                 TableRow row2 = new TableRow();
                 TableCell cell2 = new TableCell();
 
@@ -161,7 +182,7 @@ namespace MerCadona
         {
             Table tablaCarro = (Table)this.Master.FindControl("tablaCarrito");
             //si no hay postback cargo la Cesta
-            controlCarrito control = (controlCarrito)Page.LoadControl(rutaControlCarrito);
+            this.control = (controlCarrito)Page.LoadControl(rutaControlCarrito);
             tablaDeCarrito = (Table)control.FindControl("TablaMiniProductos");
             TableRow row3 = new TableRow();
             TableCell cell3 = new TableCell();
@@ -179,6 +200,42 @@ namespace MerCadona
             cell.Controls.Add(uncontrol);
             row.Cells.Add(cell);
             tablaDeCarrito.Rows.Add(row);
+        }
+        public void cargaTree()
+        {
+            #region "cargo tree a mano"
+            XElement root = XElement.Load(HttpContext.Current.Request.MapPath(rutaSecciones));
+            foreach (XElement seccion in root.Descendants("Seccion"))
+            {
+                TreeNode parentSecc = new TreeNode();
+                parentSecc.Text = seccion.Attribute("Nombre").Value;
+                tree.Nodes.Add(parentSecc);
+
+                foreach (XElement subseccion in seccion.Descendants("SubSeccion"))
+                {
+                    TreeNode childSubsecc = new TreeNode();
+                    childSubsecc.Text = subseccion.Attribute("Nombre").Value;
+                    parentSecc.ChildNodes.Add(childSubsecc);
+
+                    foreach (XElement producto in subseccion.Descendants("Producto"))
+                    {
+                        TreeNode childProd = new TreeNode();
+                        childProd.Text = producto.Value + producto.Attribute("Precio");
+                        childSubsecc.ChildNodes.Add(childProd);
+                        //++contador;
+                        //if ( contador == 4 )
+                        //{
+                        //    contador = 0;
+                        //    break;
+                        //}
+                        //CUTRE Q TE CAGAAAAS!!
+                    }
+
+                }
+
+
+            }
+            #endregion
         }
 
         private void mostrar()
