@@ -15,4 +15,3 @@ C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\Microsoft
 C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\Spire.License.xml
 C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\Spire.Pdf.xml
 C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\bin\AjaxControlToolkit.dll
-C:\Users\Catalin\Desktop\Proyecto_Catalin_Greu\MerCadona\MerCadona\obj\Debug\MerCadona.csprojResolveAssemblyReference.cache

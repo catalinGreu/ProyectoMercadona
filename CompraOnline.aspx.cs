@@ -28,6 +28,7 @@ namespace MerCadona
         //List<Producto> listaViewState;
         Table tablaDeCarrito;
         TreeView tree;
+        string email;
         protected void Page_Load(object sender, EventArgs e)
         {
             tree = (TreeView)this.Master.FindControl("TreeView1");
@@ -38,7 +39,7 @@ namespace MerCadona
             cargaControlCarrito();
             if (!this.IsPostBack)
             {
-                string email = this.Request.QueryString["usuario"];
+                email = this.Request.QueryString["usuario"];
                 cliente = controlFichero.getCliente(email, rutaXML);
                 lblDireccion.Text = "Usuario: " + cliente.Nombre + ". Direccion: " + cliente.Direccion;
 
@@ -54,7 +55,6 @@ namespace MerCadona
                 //la cargo SIEMPRE
                 l = (List<Producto>)ViewState["listaproductos"];
                 actualizaCarrito(l);
-                mostrar();
                 foreach (string clave in this.Request.Params.AllKeys)
                 {
                     string subseccion;
@@ -109,6 +109,12 @@ namespace MerCadona
 
                         rellenaTablaConProductos(lista);
                     }
+                    if ( clave.Contains("BtnFormalizarPedido" ) )
+                    {
+                        string mail = this.Request.QueryString["usuario"];
+                        cliente = controlFichero.getCliente(mail, rutaXML);
+                        this.Response.Redirect("Formalizar.aspx?cliente="+cliente.Email+"&total="+this.control.Total);
+                    }
 
 
                 }
@@ -136,11 +142,19 @@ namespace MerCadona
             decimal total = 0;
             decimal iva = 0;
             tablaDeCarrito.Controls.Clear();
+            string descAComparar = "";
+            int cantidades = 0;
             foreach (Producto p in lista)
             {
+                if (p.descripcion == descAComparar)
+                    cantidades++;
+                else
+                    descAComparar = p.Descripcion;//compruebo si hay 2 iguals...no va!!
+                
                 controlListaMiniProducto minicontrol = (controlListaMiniProducto)Page.LoadControl(rutaControlProducto);
                 minicontrol.Producto = p.Descripcion;
                 minicontrol.Precio = p.Precio;
+                
                 total += p.Precio;
 
                 addToCarrito(minicontrol, tablaDeCarrito);
@@ -238,15 +252,6 @@ namespace MerCadona
             #endregion
         }
 
-        private void mostrar()
-        {
-            string mensaje = "";
-            foreach (string clave in this.Request.Params.Keys)
-            {
-                mensaje += "clave:_" + clave + " -------valor:_" +
-                    this.Request.Params[clave].ToString() + "\n";
-            }
-            this.TextBox1.Text = mensaje;
-        }
+       
     }
 }

@@ -11,7 +11,7 @@ namespace MerCadona.__Controles_Usuario__
     {
         private string prod;
         private decimal precio;
-
+        private int cant;
         public string Producto
         {
             get { return this.prod; }
@@ -24,6 +24,13 @@ namespace MerCadona.__Controles_Usuario__
             get { return this.precio; }
             set { this.precio = value;
                 this.LblPrecio.Text = this.precio.ToString();
+            }
+        }
+        public int Cantidad
+        {
+            get { return this.cant; }
+            set { this.cant = value;
+                this.LblCantidadMiniProd.Text = this.cant.ToString();
             }
         }
         

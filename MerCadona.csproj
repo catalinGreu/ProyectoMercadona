@@ -82,6 +82,7 @@
     <Content Include="ficheros\Empleados.xml" />
     <Content Include="ficheros\RECLAMACIONES.xml" />
     <Content Include="ficheros\Supermercados.xml" />
+    <Content Include="Formalizar.aspx" />
     <Content Include="imagenes\imagenes_CompraOnline\ayudaContras.png" />
     <Content Include="imagenes\imagenes_CompraOnline\bottomAyuda.png" />
     <Content Include="imagenes\imagenes_CompraOnline\imagenes_autentificacion\cabeceraRegistro.png" />
@@ -211,6 +212,13 @@
     </Compile>
     <Compile Include="DondeSupermercados.aspx.designer.cs">
       <DependentUpon>DondeSupermercados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formalizar.aspx.cs">
+      <DependentUpon>Formalizar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formalizar.aspx.designer.cs">
+      <DependentUpon>Formalizar.aspx</DependentUpon>
     </Compile>
     <Compile Include="IndexCompra.aspx.cs">
       <DependentUpon>IndexCompra.aspx</DependentUpon>
