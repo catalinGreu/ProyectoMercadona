@@ -98,6 +98,7 @@
     <Content Include="NuestraEmpresaMaster.aspx" />
     <Content Include="RegistroClientes2.aspx" />
     <Content Include="__Controles_Usuario__\controlCarrito.ascx" />
+    <Content Include="__Controles_Usuario__\ControlItems.ascx" />
     <Content Include="__Controles_Usuario__\controlListaMiniProducto.ascx" />
     <Content Include="ficheros\provincias.csv" />
     <Content Include="MasterNavBar.Master" />
@@ -267,6 +268,13 @@
     </Compile>
     <Compile Include="__Controles_Usuario__\controlCarrito.ascx.designer.cs">
       <DependentUpon>controlCarrito.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="__Controles_Usuario__\ControlItems.ascx.cs">
+      <DependentUpon>ControlItems.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="__Controles_Usuario__\ControlItems.ascx.designer.cs">
+      <DependentUpon>ControlItems.ascx</DependentUpon>
     </Compile>
     <Compile Include="__Controles_Usuario__\controlListaMiniProducto.ascx.cs">
       <DependentUpon>controlListaMiniProducto.ascx</DependentUpon>

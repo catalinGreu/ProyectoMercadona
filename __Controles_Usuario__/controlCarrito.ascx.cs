@@ -11,7 +11,7 @@ namespace MerCadona.__Controles_Usuario__
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.TablaMiniProductos = new Table();
         }
     }
 }

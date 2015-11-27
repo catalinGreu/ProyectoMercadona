@@ -20,23 +20,24 @@ namespace MerCadona
         private string rutaXML = "ficheros/Clientes.xml";
         private string rutaControlCarrito = "~/__Controles_Usuario__/controlCarrito.ascx";
         private string rutaControlProducto = "~/__Controles_Usuario__/controlListaMiniProducto.ascx";
+        private string rutaControlItems = "~/__Controles_Usuario__/ControlItems.ascx";
         private string rutaSecciones = "ficheros/SECCIONES_SUBSECCIONES.xml";
+        List<Producto> lista;
+        Table tablaDeCarrito;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //instanciar controles de la MASTER!!!!----> leo categorias y subcategorias
             TreeView tree = (TreeView)this.Master.FindControl("TreeView1");
             Label lblDireccion = (Label)this.Master.FindControl("LabelDireccion");
+
             controlFichero = new ControladorFicheros();
+
+            cargaControlCarrito();
             if (!this.IsPostBack)
             {
                 string email = this.Request.QueryString["usuario"];
                 cliente = controlFichero.getCliente(email, rutaXML);
                 lblDireccion.Text = "Usuario: " + cliente.Nombre + ". Direccion: " + cliente.Direccion;
 
-                //ahora tengo que cargar los nodos desde el XML
-
-                //int contador = 0;
-                //XElement root = controlFichero.getSecciones(rutaSecciones);
 
                 #region "cargo tree a mano"
                 XElement root = XElement.Load(HttpContext.Current.Request.MapPath(rutaSecciones));
@@ -71,7 +72,6 @@ namespace MerCadona
 
                 }
                 #endregion
-                //secciones.Nodes.Add(controlFichero.getSecciones(rutaSecciones));
 
             }
             else if (this.IsPostBack)
@@ -79,34 +79,53 @@ namespace MerCadona
                 mostrar();
                 foreach (string clave in this.Request.Params.AllKeys)
                 {
+                    string subseccion;
                     string claveRequest = this.Request.Params[clave];
                     switch (clave)
                     {
                         case "__EVENTTARGET":
-                            string nodo = this.Request.Params["__EVENTARGUMENT"];
+
                             if (claveRequest.Contains(tree.ID))
                             {
-                                if ( nodo.Contains("Fruta") || nodo.Contains("Verduras") || nodo.Contains("Lacteos"))
-                                {
-                                    
-                                }
                                 char[] separador = new char[] { '\\' };
-                                string subseccion = this.Request.Params["__EVENTARGUMENT"].ToString().Split(separador)[1];
 
-                                List<Producto> lista = controlFichero.getProductoSubseccion(subseccion, rutaSecciones);
+                                try
+                                {
+                                    subseccion = this.Request.Params["__EVENTARGUMENT"].ToString().Split(separador)[1];
+                                    Session["subActual"] = subseccion;
+                                }
+                                catch (IndexOutOfRangeException)
+                                {
+                                    return;
+                                }
+
+                                lista = controlFichero.getProductoSubseccion(subseccion, rutaSecciones);
                                 rellenaTablaConProductos(lista);
                             }
                             break;
                         default:
                             break;
+
                     }
+
+                    if (claveRequest.Equals("Añadir"))
+                    {
+                        string descripcion = clave.Split(new char[] { '$' })[3];
+                        string sub = (string)Session["subActual"];
+                        lista = controlFichero.getProductoSubseccion(sub, rutaSecciones);
+                        Producto p = (from prod in lista
+                                      where prod.Descripcion == descripcion
+                                      select prod).Single();
+                        controlListaMiniProducto minicontrol = (controlListaMiniProducto)Page.LoadControl(rutaControlProducto);
+                        minicontrol.Producto = p.Descripcion;
+                        minicontrol.Precio = p.Precio;
+                        
+                        addToCarrito(minicontrol, tablaDeCarrito);
+                        rellenaTablaConProductos(lista);
+                    }
+
+
                 }
-                //compruebo que subcategoria se pulsa
-                //y cargo controles usuario producto
-                //instancio objeto Producto...
-
-
-
             }
         }
         public void rellenaTablaConProductos(List<Producto> lista)
@@ -116,28 +135,52 @@ namespace MerCadona
             TableCell cell = new TableCell();
             Label l = new Label();
             l.Font.Bold = true;
-            l.Text = lista[0].Subseccion; ;
+            l.Text = lista[0].Subseccion + ".";
+            l.Text += "\n" + lista.Count + "  Productos encontrados";
             cell.Controls.Add(l);
             row.Cells.Add(cell);
             this.tablaProductos.Rows.Add(row);
 
-            foreach ( Producto p in lista )
+            foreach (Producto p in lista)
             {
-                controlListaMiniProducto micontrol = (controlListaMiniProducto)Page.LoadControl(rutaControlProducto);
-                micontrol.Producto = p.Descripcion;
+                ControlItems micontrol = (ControlItems)Page.LoadControl(rutaControlItems);
+                micontrol.Descripcion = p.Descripcion;
                 micontrol.Precio = p.Precio;
+                micontrol.Boton = p.Descripcion;
                 //quiza haya que mapear algo....
                 TableRow row2 = new TableRow();
-                
                 TableCell cell2 = new TableCell();
-                Label cat = new Label();
-                cat.Text = p.Subseccion;
-                cat.Font.Bold = true;               
+
                 cell.Controls.Add(micontrol);
                 row.Cells.Add(cell2);
                 this.tablaProductos.Rows.Add(row2);
             }
         }
+
+        public void cargaControlCarrito()
+        {
+            Table tablaCarro = (Table)this.Master.FindControl("tablaCarrito");
+            //si no hay postback cargo la Cesta
+            controlCarrito control = (controlCarrito)Page.LoadControl(rutaControlCarrito);
+            tablaDeCarrito = (Table)control.FindControl("TablaMiniProductos");
+            TableRow row3 = new TableRow();
+            TableCell cell3 = new TableCell();
+
+            cell3.Controls.Add(control);
+            row3.Cells.Add(cell3);
+            tablaCarro.Rows.Add(row3);//si añaden un producto a la cesta...find control de la tabla de la cesta
+                                      //para añadirle items
+        }
+
+        public void addToCarrito(controlListaMiniProducto uncontrol, Table tablaDeCarrito)
+        {
+            TableRow row = new TableRow();
+            TableCell cell = new TableCell();
+            cell.Controls.Add(uncontrol);
+            row.Cells.Add(cell);
+            tablaDeCarrito.Rows.Add(row);
+        }
+
         private void mostrar()
         {
             string mensaje = "";
